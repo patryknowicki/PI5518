@@ -3,15 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <title>Rejestracja</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/style.css" th:href="@{/css/style.css}"/>
+
 </head>
 <body>
-<h1>Rejestracja</h1>
+<div align="center">
+<h1>Rejestracja</h1><br>
 <form th:action="@{/register}" method="post">
 
     Login:<br>
     <input type="text" name="username">
     <br>
-    Password:<br>
+    Hasło:<br>
     <input type="text" name="password">
     <br>
     E-Mail:<br>
@@ -19,11 +22,11 @@
     <br><br>
     <input type="submit" value="Zarejestruj się!">
     <!-- Przycisk WYCZYŚĆ DANE -->
-    <input type="reset" value="Wyczyść dane">
+    <input type="reset" value="Wyczyść dane!">
 
 
 </form>
 
-
+</div>
 </body>
 </html>
