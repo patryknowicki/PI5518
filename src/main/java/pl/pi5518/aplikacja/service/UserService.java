@@ -42,7 +42,7 @@ public class UserService {
         String url = "http://localhost:8080/token?value=" + tokenValue;
 
         try {
-            mailService.sendMail(appUser.getMail(), "Potwierdzaj to!", url, false);
+            mailService.sendMail(appUser.getMail(), "Potwierdzenie rejestracji w serwisie", "Potwierdź rejestrację klikając w link: " + url + " lub zignoruj tę wiadomość", false);
         } catch (MessagingException e) {
             e.printStackTrace();
         }

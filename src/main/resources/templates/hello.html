@@ -2,21 +2,11 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Sukces</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/style.css" th:href="@{/css/style.css}"/>
 </head>
 <body>
-Hello <span th:text="${name}"></span>
-<br>
-Details: <span th:text="${details}"></span>
-<br>
-You role:
-<table>
-    <th:block th:each="auth : ${authorities}">
-        <tr>
-            <td th:text="${auth}">...</td>
-        </tr>
-    </th:block>
-</table>
+<h1>Rejestracja zakończona pomyślnie!</h1>
 
 </body>
 </html>

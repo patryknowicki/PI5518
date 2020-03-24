@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Rejestracja</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="../static/css/style.css" th:href="@{/css/style.css}"/>
 
 </head>
@@ -15,14 +17,17 @@
     <input type="text" name="username">
     <br>
     Hasło:<br>
-    <input type="text" name="password">
+    <input type="password" name="password">
     <br>
     E-Mail:<br>
     <input type="text" name="mail">
     <br><br>
-    <input type="submit" value="Zarejestruj się!">
-    <!-- Przycisk WYCZYŚĆ DANE -->
-    <input type="reset" value="Wyczyść dane!">
+    <button type="submit" class="btn btn-outline-secondary">Zarejestruj się!</button>
+    <button class="btn btn-primary" disabled>
+        <span class="spinner-border spinner-border-sm"></span>
+    </button>
+    <button type="reset" class="btn btn-outline-secondary">Wyczyść dane</button>
+
 
 
 </form>
