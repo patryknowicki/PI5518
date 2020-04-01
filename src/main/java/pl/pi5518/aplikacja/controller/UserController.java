@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import pl.pi5518.aplikacja.model.Token;
 import pl.pi5518.aplikacja.repository.AppUserRepo;
@@ -35,6 +36,11 @@ public class UserController {
 //    public String hello(){
 //        return "hello dla wszystkich";
 //    }
+
+    @RequestMapping("/home")
+        public String homePage(){
+            return "home";
+    }
 
     @GetMapping("/hello")
     public String forUser(Principal principal, Model model){
