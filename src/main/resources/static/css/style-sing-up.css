@@ -1,0 +1,12 @@
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,100,200,300);
+
+#box{
+
+    width: 20%;
+
+    font: 16px/26px "Raleway", sans-serif;
+
+    color: #666;
+    background: rgb(238,174,202);
+    background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+}
