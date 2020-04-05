@@ -1,4 +1,4 @@
-package pl.pi5518.aplikacja;
+package pl.pi5518.aplikacja.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
