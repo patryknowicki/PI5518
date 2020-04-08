@@ -42,6 +42,7 @@ public class UserController {
             return "home";
     }
 
+
     @GetMapping("/hello")
     public String forUser(Principal principal, Model model){
         model.addAttribute("name", principal.getName());
@@ -74,5 +75,9 @@ public class UserController {
         appUser.setEnabled(true);
         appUserRepo.save(appUser);
         return "hello";
+    }
+    @RequestMapping("/czat")
+    public String czat(){
+        return "czat";
     }
 }

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+>
+<head>
+    <meta charset="UTF-8">
+    <title>Czat</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="../static/css/czat.css" th:href="@{/css/czat.css}"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body onload="connect()" >
+<div align="center">
+    <h2>Witaj w czacie użytkowniku!</h2><br><br>
+    <button class="btn" onclick="window.location.href='http://localhost:8080/home'"><i class="fa fa-home"></i> Strona główna</button>
+    <br><br>
+    Podaj swoją nazwę:<br>
+    <input id="user" type="text"/><br>
+
+    Wpisz swoją wiadomość:<br>
+    <input id="messageToSend" type="text"/><br>
+
+    <button onclick="sendMessage()">Wyślij</button>
+    <p id="reponse"></p>
+</div>
+<script src="js/logic.js"></script>
+<script src="js/stomp.js"></script>
+</body>
+</html>

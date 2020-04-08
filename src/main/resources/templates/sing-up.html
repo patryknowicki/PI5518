@@ -6,32 +6,42 @@
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="../static/css/style-sing-up.css" th:href="@{/css/style-sing-up.css}"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 </head>
 <body>
+<div align="center" th:id="top">
+    <h1>Rejestracja</h1><br>
+    <img src="https://scontent-frt3-2.xx.fbcdn.net/v/t1.15752-9/s2048x2048/91447004_207033283921431_5510066823107706880_n.png?_nc_cat=103&_nc_sid=b96e70&_nc_oc=AQlk6wlicQjAzPVnSgtTqTihvIzhxgotHZ9fwxYOFr1Ba-V-20qkM57JLVbkn1MRJPw&_nc_ht=scontent-frt3-2.xx&oh=4522af1fd3d465cd7379235dfbec2289&oe=5EB1F0EF"
+         height="170" width="280">
+    <br><br>
 <div align="center" th:id="box">
-<h1>Rejestracja</h1><br>
-<form th:action="@{/register}" method="post">
 
+<form th:action="@{/register}" method="post">
+    <button class="" disabled>
+        <span class="spinner-grow spinner-grow-sm"></span>
+        Rejestracja w toku..
+    </button><br>
     Login:<br>
-    <input type="text" name="username">
+    <input type="text" name="username" required>
     <br>
     Hasło:<br>
-    <input type="password" name="password">
+    <input type="password" name="password" required>
     <br>
     E-Mail:<br>
-    <input type="text" name="mail">
+    <input type="text" name="mail" required>
     <br><br>
-    <button type="submit" class="btn btn-outline-secondary">Zarejestruj się!</button>
-    <button class="btn btn-primary" disabled>
-        <span class="spinner-border spinner-border-sm"></span>
-    </button>
-    <button type="reset" class="btn btn-outline-secondary">Wyczyść dane</button><br><br>
+    <button type="submit" class="btn">Zarejestruj się!</button>
 
-
-
+    <button type="reset" class="btn"><i class="fa fa-trash"></i> Wyczyść dane</button><br>
 </form>
 
+</div>
+    <br>
+    <div align="center">
+        <button class="btn" onclick="window.location.href='http://localhost:8080/home'"><i class="fa fa-home"></i></button>
+
+    </div>
 </div>
 </body>
 </html>
