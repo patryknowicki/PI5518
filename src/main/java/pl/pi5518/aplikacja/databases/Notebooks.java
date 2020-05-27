@@ -3,7 +3,6 @@ package pl.pi5518.aplikacja.databases;
 import javax.persistence.*;
 
 @Entity
-
 public class Notebooks {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -87,6 +86,9 @@ public class Notebooks {
         this.wyjscia_karty_graficznej = wyjscia_karty_graficznej;
         this.cena = cena;
         this.isNew = isNew;
+    }
+    public Notebooks(){
+        
     }
 
     public Integer getId() {
