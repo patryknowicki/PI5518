@@ -3,7 +3,7 @@ package pl.pi5518.aplikacja.databases;
 import javax.persistence.*;
 
 @Entity
-public class Pc {
+public class Pcs {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -40,11 +40,11 @@ public class Pc {
     @Transient
     boolean isNew;
 
-    public Pc(String producent, String grupa_produktowa, String system_operacyjny, String rodzaj, String seria,
-              String typ_procesora, String seria_procesora, String model_procesora, String ilosc_rdzeni,
-              String karta_graficzna, String wyjscia_karty_graficznej, String ram, String rodzaj_ram,
-              String ilosc_dyskow, String pojemnosc_ssd, String pojemnosc_hdd, String chipset, String zlacza,
-              String obudowa, String liczba_wentylatorow, Double cena, boolean isNew) {
+    public Pcs(String producent, String grupa_produktowa, String system_operacyjny, String rodzaj, String seria,
+               String typ_procesora, String seria_procesora, String model_procesora, String ilosc_rdzeni,
+               String karta_graficzna, String wyjscia_karty_graficznej, String ram, String rodzaj_ram,
+               String ilosc_dyskow, String pojemnosc_ssd, String pojemnosc_hdd, String chipset, String zlacza,
+               String obudowa, String liczba_wentylatorow, Double cena, boolean isNew) {
         this.producent = producent;
         this.grupa_produktowa = grupa_produktowa;
         this.system_operacyjny = system_operacyjny;
@@ -69,11 +69,11 @@ public class Pc {
         this.isNew = isNew;
     }
 
-    public Pc(Integer id, String producent, String grupa_produktowa, String system_operacyjny, String rodzaj,
-              String seria, String typ_procesora, String seria_procesora, String model_procesora,
-              String ilosc_rdzeni, String karta_graficzna, String wyjscia_karty_graficznej, String ram,
-              String rodzaj_ram, String ilosc_dyskow, String pojemnosc_ssd, String pojemnosc_hdd, String chipset,
-              String zlacza, String obudowa, String liczba_wentylatorow, Double cena, boolean isNew) {
+    public Pcs(Integer id, String producent, String grupa_produktowa, String system_operacyjny, String rodzaj,
+               String seria, String typ_procesora, String seria_procesora, String model_procesora,
+               String ilosc_rdzeni, String karta_graficzna, String wyjscia_karty_graficznej, String ram,
+               String rodzaj_ram, String ilosc_dyskow, String pojemnosc_ssd, String pojemnosc_hdd, String chipset,
+               String zlacza, String obudowa, String liczba_wentylatorow, Double cena, boolean isNew) {
         this.id = id;
         this.producent = producent;
         this.grupa_produktowa = grupa_produktowa;
@@ -99,7 +99,7 @@ public class Pc {
         this.isNew = isNew;
     }
 
-    public Pc() {
+    public Pcs() {
     }
 
     public Integer getId() {
