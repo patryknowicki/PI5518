@@ -39,7 +39,7 @@ public class UserController {
 
     @RequestMapping("/home")
         public String homePage(){
-            return "home";
+            return "index";
     }
 
 
