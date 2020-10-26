@@ -3,21 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <title>Dodaj nowe urządzenie</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
 <form action="#" th:action="@{/newNotebook}" th:object="${newNotebook}" method="post">
-<!--<form action="http://localhost:8080/newNotebook" method="post" onreset="if (!confirm('Czy na pewno chcesz wyczyścić cały formularz?')) return false">-->
+    <!--<form action="http://localhost:8080/newNotebook" method="post" onreset="if (!confirm('Czy na pewno chcesz wyczyścić cały formularz?')) return false">-->
     <table>
         <a href="#" class="btn btn-secondary btn-lg disabled" role="button" aria-disabled="true">Dodaj</a>
-        <tr><td></td></tr>       <tr><td></td></tr>
+        <tr>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+        </tr>
         <tr>
             <td>producent:</td>
-            <td><input type="text" name="producent"  th:field="*{producent}" placeholder="producent"></td>
+            <td><input type="text" name="producent" th:field="*{producent}" placeholder="producent"></td>
         </tr>
         <tr>
             <td>grupa_produktowa:</td>
-            <td><input type="text" name="grupa_produktowa" th:field="*{grupa_produktowa}"> </td>
+            <td><input type="text" name="grupa_produktowa" th:field="*{grupa_produktowa}"></td>
         </tr>
         <tr>
             <td>system_operacyjny</td>
@@ -85,12 +91,10 @@
         </tr>
 
 
-
-
     </table>
     <div class="btn-group" role="group" aria-label="Basic example">
 
-        <input class="btn btn-dark" type="reset" value="Reset" >
+        <input class="btn btn-dark" type="reset" value="Reset">
         <button type="button" class="btn btn-outline-dark" disabled></button>
         <input class="btn btn-primary" type="submit" value="Submit">
     </div>
