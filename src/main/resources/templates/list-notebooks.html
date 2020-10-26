@@ -10,32 +10,6 @@
 <body>
 
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">Nawigacja</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="http://localhost:8080/home">Home <span class="sr-only"></span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="http://localhost:8080/list">Car list</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="http://localhost:8080/listmoto">Motorcycle list</a>
-            </li>
-        </ul>
-        <form class="form-inline my-2 my-lg-0" action="http://localhost:8080/search">
-
-            <input  name="criterion" class="form-control mr-sm-2" type="search" placeholder="Find by mark " aria-label="Search">
-            <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Search</button>
-        </form>
-    </div>
-</nav>
-
 
 <a href="#" class="btn btn-secondary btn-lg btn-block disabled" role="button" aria-disabled="true"><h2>Laptopy i Notebooki</h2></a>
 <table  class="table table-striped">
@@ -79,28 +53,13 @@
         <td th:text="${wpis.karta_graficzna}">karta_graficzna</td>
         <td th:text="${wpis.wyjscia_karty_graficznej}">wyjscia_karty_graficznej</td>
         <td th:text="${wpis.cena}">cena</td>
-
-
-        <td>
-            <a href="#" th:href="@{/redirect(id=${wpis.id})}" class="btn btn-outline-primary"
-               data-toggle="tooltip" data-placement="top" title="Update information"></i>Update</a>
-        </td>
-        <td>
-            <a href="#" th:href="@{/DetailsCar(id=${wpis.id})}" class="btn btn-outline-primary"
-               data-toggle="tooltip" data-placement="top" title="Update information"></i>Details</a>
-        </td>
-
-        <td>
-            <a href="#" th:href="@{/delete(id=${wpis.id})}" class="btn btn-danger"
-               data-toggle="tooltip" data-placement="top" title="Delete forever from the database"></i>Delete</a></td>
-    </tr>
-
+    
 
 </table>
 
 <p align="right">
 
-    <input type="button" class="btn btn-primary btn-lg" value="Add new car" onclick="window.location.href='http://localhost:8080/add'">
+    <input type="button" class="btn btn-primary btn-lg" value="Dodaj" onclick="window.location.href='http://localhost:8080/add-notebooks'">
 </p>
 <a href="#" class="btn btn-secondary btn-lg btn-block disabled" role="button" aria-disabled="true"><h2></h2></a>
 

@@ -28,14 +28,10 @@ public class UserController {
     private TabletsRepo tabletsRepo;
 
 
-    public UserController(UserService userService, TokenRepo tokenRepo, AppUserRepo appUserRepo,
-                            NotebooksRepo notebooksRepo, PcsRepo pcsRepo, TabletsRepo tabletsRepo ) {
+    public UserController(UserService userService, TokenRepo tokenRepo, AppUserRepo appUserRepo ) {
         this.userService = userService;
         this.tokenRepo = tokenRepo;
         this.appUserRepo = appUserRepo;
-        this.notebooksRepo = notebooksRepo;
-        this.pcsRepo = pcsRepo;
-        this.tabletsRepo = tabletsRepo;
     }
 
         // for REST
@@ -88,7 +84,7 @@ public class UserController {
     public String czat(){
         return "czat";
     }
-
+/*
     @RequestMapping("/list-notebooks")
     public String list(Model model){
 
@@ -129,4 +125,6 @@ public class UserController {
         model.addAttribute("notebooks", notebooks);
         return "add-notebooks";
     }
+
+ */
 }

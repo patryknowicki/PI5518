@@ -91,8 +91,14 @@ public class Notebooks {
         
     }
 
-    public Notebooks(String producent, String grupa_produktowa, String system_operacyjny, String rodzaj_laptopa, String przekatna_ekranu, String typ_procesora, String rodzaj_dysku, String rozdzielczosc, String seria_procesora, String model_procesora, String ilosc_rdzeni, String ilosc_dyskow, String pojemnosc_ssd, String pojemnosc_hdd, String karta_graficzna, String wyjscia_karty_graficznej, Double cena, boolean b) {
+    public Notebooks(String producent, String grupa_produktowa, String system_operacyjny, String rodzaj_laptopa,
+                     String przekatna_ekranu, String typ_procesora, String rodzaj_dysku, String rozdzielczosc,
+                     String seria_procesora, String model_procesora, String ilosc_rdzeni, String ilosc_dyskow,
+                     String pojemnosc_ssd, String pojemnosc_hdd, String karta_graficzna,
+                     String wyjscia_karty_graficznej, Double cena, boolean b) {
     }
+
+
 
     public Integer getId() {
         return id;

@@ -1,106 +1,87 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Dodaj nowe urządzenie</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">NAWIGAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="http://localhost:8080/home">Home <span class="sr-only"></span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="http://localhost:8080/list">COS</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="http://localhost:8080/listmoto">GOWNO</a>
-            </li>
-        </ul>
-    </div>
-</nav>
-<form action="http://localhost:8080/add-notebooks" method="post" onreset="if (!confirm('Czy na pewno chcesz wyczyścić cały formularz?')) return false">
+<form action="#" th:action="@{/newNotebook}" th:object="${newNotebook}" method="post">
+<!--<form action="http://localhost:8080/newNotebook" method="post" onreset="if (!confirm('Czy na pewno chcesz wyczyścić cały formularz?')) return false">-->
     <table>
         <a href="#" class="btn btn-secondary btn-lg disabled" role="button" aria-disabled="true">Dodaj</a>
         <tr><td></td></tr>       <tr><td></td></tr>
         <tr>
-            <td>Mark:</td>
-            <td><input name="producent" producent></td>
+            <td>producent:</td>
+            <td><input type="text" name="producent"  th:field="*{producent}" placeholder="producent"></td>
         </tr>
         <tr>
-            <td>Model:</td>
-            <td><input name="grupa_produktowa" grupa_produktowa> </td>
+            <td>grupa_produktowa:</td>
+            <td><input type="text" name="grupa_produktowa" th:field="*{grupa_produktowa}"> </td>
         </tr>
         <tr>
-            <td>Version(Serial/Custom)</td>
-            <td><input name="system_operacyjny" required></td>
+            <td>system_operacyjny</td>
+            <td><input type="text" name="system_operacyjny" th:field="*{system_operacyjny}"></td>
         </tr>
         <tr>
-            <td>Motorcycle destiny:</td>
-            <td><input name="rodzaj_laptopa" required></td>
+            <td>rodzaj_laptopa:</td>
+            <td><input type="text" name="rodzaj_laptopa" th:field="*{rodzaj_laptopa}"></td>
         </tr>
         <tr>
-            <td>Engine type:</td>
-            <td><input name="przekatna_ekranu" required></td>
+            <td>przekatna_ekranu</td>
+            <td><input type="number" name="przekatna_ekranu" th:field="*{przekatna_ekranu}"></td>
         </tr>
         <tr>
-            <td>Capacity:</td>
-            <td><input name="typ_procesora" required></td>
+            <td>typ_procesora</td>
+            <td><input type="text" name="typ_procesora" th:field="*{typ_procesora}"></td>
         </tr>
         <tr>
-            <td>Engine operation strokes:</td>
-            <td><input name="rodzaj_dysku" required></td>
+            <td>rodzaj_dysku</td>
+            <td><input type="text" name="rodzaj_dysku" th:field="*{rodzaj_dysku}"></td>
         </tr>
         <tr>
-            <td>Production date:</td>
-            <td><input name="rozdzielczosc" required></td>
+            <td>rozdzielczosc</td>
+            <td><input type="number" name="rozdzielczosc" th:field="*{rozdzielczosc}"></td>
         </tr>
         <tr>
-            <td>Drive license:</td>
-            <td><input name="seria_procesora" required></td>
+            <td>seria_procesora</td>
+            <td><input type="text" name="seria_procesora" th:field="*{seria_procesora}"></td>
         </tr>
         <tr>
-            <td>Key number:</td>
-            <td><input name="model_procesora" required></td>
+            <td>model_procesora</td>
+            <td><input type="text" name="model_procesora" th:field="*{model_procesora}"></td>
         </tr>
         <tr>
-            <td>Addictives</td>
-            <td><input name="ilosc_rdzeni"></td>
+            <td>ilosc_rdzeni</td>
+            <td><input type="number" name="ilosc_rdzeni" th:field="*{ilosc_rdzeni}"></td>
         </tr>
         <tr>
-            <td>Addictives</td>
-            <td><input name="ram"></td>
+            <td>ram</td>
+            <td><input type="text" name="ram" th:field="*{ram}"></td>
         </tr>
         <tr>
-            <td>Addictives</td>
-            <td><input name="ilosc_dyskow"></td>
+            <td>ilosc_dyskow</td>
+            <td><input type="number" name="ilosc_dyskow" th:field="*{ilosc_dyskow}"></td>
         </tr>
         <tr>
-            <td>Addictives</td>
-            <td><input name="pojemnosc_ssd"></td>
+            <td>pojemnosc_ssd</td>
+            <td><input type="number" name="pojemnosc_ssd" th:field="*{pojemnosc_ssd}"></td>
         </tr>
         <tr>
-            <td>Addictives</td>
-            <td><input name="pojemnosc_hdd"></td>
+            <td>pojemnosc_hdd</td>
+            <td><input type="number" name="pojemnosc_hdd" th:field="*{pojemnosc_hdd}"></td>
         </tr>
         <tr>
-            <td>Addictives</td>
-            <td><input name="karta_graficzna"></td>
+            <td>karta_graficzna</td>
+            <td><input type="text" name="karta_graficzna" th:field="*{karta_graficzna}"></td>
         </tr>
         <tr>
-            <td>Addictives</td>
-            <td><input name="wyjscia_karty_graficznej"></td>
+            <td>wyjscia_karty_graficznej</td>
+            <td><input type="number" name="wyjscia_karty_graficznej" th:field="*{wyjscia_karty_graficznej}"></td>
         </tr>
         <tr>
-            <td>Addictives</td>
-            <td><input name="cena"></td>
+            <td>cena</td>
+            <td><input type="number" name="cena" th:field="*{cena}"></td>
         </tr>
 
 
@@ -110,7 +91,7 @@
     <div class="btn-group" role="group" aria-label="Basic example">
 
         <input class="btn btn-dark" type="reset" value="Reset" >
-        <button type="button" class="btn btn-outline-dark" disabled>                       </button>
+        <button type="button" class="btn btn-outline-dark" disabled></button>
         <input class="btn btn-primary" type="submit" value="Submit">
     </div>
 </form>
