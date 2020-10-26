@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="pl">
+    <head>
+        <meta charset="UTF-8">
+        <title>Laptopy</title>
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    </head>
+<body>
+
+
+
+<a href="#" class="btn btn-secondary btn-lg btn-block disabled" role="button" aria-disabled="true"><h2>Komputery stacjonarne</h2></a>
+<table  class="table table-striped">
+    <tr>
+        <th>producent</th>
+        <th>grupa_produktowa</th>
+        <th>system_operacyjny</th>
+        <th>rodzaj</th>
+        <th>seria</th>
+        <th>typ_procesora</th>
+        <th>seria_procesora</th>
+        <th>model_procesora</th>
+        <th>ilosc_rdzeni</th>
+        <th>karta_graficzna</th>
+        <th>wyjscia_karty_graficznej</th>
+        <th>ram</th>
+        <th>rodzaj_ram</th>
+        <th>ilosc_dyskow</th>
+        <th>pojemnosc_ssd</th>
+        <th>chipset</th>
+        <th>zlacza</th>
+        <th>obudowa</th>
+        <th>liczba_wentylatorow</th>
+        <th>cena</th>
+    </tr>
+
+    <tr  th:each="wpis: ${pcs}">
+        <td th:text="${wpis.producent}">producent</td>
+        <td th:text="${wpis.grupa_produktowa}">grupa_produktowa</td>
+        <td th:text="${wpis.system_operacyjny}">system_operacyjny</td>
+        <td th:text="${wpis.rodzaj}">rodzaj</td>
+        <td th:text="${wpis.seria}">seria</td>
+        <td th:text="${wpis.typ_procesora}">typ_procesora</td>
+        <td th:text="${wpis.seria_procesora}">seria_procesora</td>
+        <td th:text="${wpis.model_procesora}">model_procesora</td>
+        <td th:text="${wpis.ilosc_rdzeni}">ilosc_rdzeni</td>
+        <td th:text="${wpis.karta_graficzna}">karta_graficzna</td>
+        <td th:text="${wpis.wyjscia_karty_graficznej}">wyjscia_karty_graficznej</td>
+        <td th:text="${wpis.ram}">ram</td>
+        <td th:text="${wpis.rodzaj_ram}">rodzaj_ram</td>
+        <td th:text="${wpis.ilosc_dyskow}">ilosc_dyskow</td>
+        <td th:text="${wpis.pojemnosc_ssd}">pojemnosc_ssd</td>
+        <td th:text="${wpis.chipset}">chipset</td>
+        <td th:text="${wpis.zlacza}">zlacza</td>
+        <td th:text="${wpis.obudowa}">obudowa</td>
+        <td th:text="${wpis.liczba_wentylatorow}">liczba_wentylatorow</td>
+        <td th:text="${wpis.cena}">cena</td>
+
+
+</table>
+
+<p align="right">
+
+    <input type="button" class="btn btn-primary btn-lg" value="Dodaj" onclick="window.location.href='http://localhost:8080/newPc'">
+</p>
+<a href="#" class="btn btn-secondary btn-lg btn-block disabled" role="button" aria-disabled="true"><h2></h2></a>
+
+
+
+
+
+
+</body>
+</html>

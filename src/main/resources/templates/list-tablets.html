@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="pl">
+    <head>
+        <meta charset="UTF-8">
+        <title>Laptopy</title>
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    </head>
+<body>
+
+
+
+<a href="#" class="btn btn-secondary btn-lg btn-block disabled" role="button" aria-disabled="true"><h2>Tablety</h2></a>
+<table  class="table table-striped">
+    <tr>
+        <th>producent</th>
+        <th>grupa_produktowa</th>
+        <th>ram</th>
+        <th>przekatna_ekranu</th>
+        <th>technologia_dotykowa</th>
+        <th>typ_wyswietlacza</th>
+        <th>wersja</th>
+        <th>rozdzielczosc</th>
+        <th>model_procesora</th>
+        <th>ilosc_rdzeni</th>
+        <th>system_operacyjny</th>
+        <th>aparat_przod</th>
+        <th>aparat_tyl</th>
+        <th>pojemnosc_akumulatora</th>
+        <th>cena</th>
+    </tr>
+
+    <tr  th:each="wpis: ${tablets}">
+        <td th:text="${wpis.producent}">producent</td>
+        <td th:text="${wpis.grupa_produktowa}">grupa_produktowa</td>
+        <td th:text="${wpis.ram}">ram</td>
+        <td th:text="${wpis.przekatna_ekranu}">przekatna_ekranu</td>
+        <td th:text="${wpis.technologia_dotykowa}">technologia_dotykowa</td>
+        <td th:text="${wpis.typ_wyswietlacza}">typ_wyswietlacza</td>
+        <td th:text="${wpis.wersja}">wersja</td>
+        <td th:text="${wpis.rozdzielczosc}">rozdzielczosc</td>
+        <td th:text="${wpis.model_procesora}">model_procesora</td>
+        <td th:text="${wpis.ilosc_rdzeni}">ilosc_rdzeni</td>
+        <td th:text="${wpis.system_operacyjny}">system_operacyjny</td>
+        <td th:text="${wpis.aparat_przod}">aparat_przod</td>
+        <td th:text="${wpis.aparat_tyl}">aparat_tyl</td>
+        <td th:text="${wpis.pojemnosc_akumulatora}">pojemnosc_akumulatora</td>
+        <td th:text="${wpis.cena}">cena</td>
+
+
+</table>
+
+<p align="right">
+
+    <input type="button" class="btn btn-primary btn-lg" value="Dodaj" onclick="window.location.href='http://localhost:8080/newTablet'">
+</p>
+<a href="#" class="btn btn-secondary btn-lg btn-block disabled" role="button" aria-disabled="true"><h2></h2></a>
+
+
+
+
+
+
+</body>
+</html>
