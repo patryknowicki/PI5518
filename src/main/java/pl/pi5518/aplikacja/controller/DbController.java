@@ -44,7 +44,7 @@ public class DbController {
     @GetMapping("/newPc")
     public String showFormAddPc(Model model) {
         Pcs pcs = new Pcs();
-        model.addAttribute("addPc", pcs);
+        model.addAttribute("newPc", pcs);
         return "add-pcs";
     }
 
