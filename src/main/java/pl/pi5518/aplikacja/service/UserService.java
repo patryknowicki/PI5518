@@ -2,6 +2,7 @@ package pl.pi5518.aplikacja.service;
 
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import pl.pi5518.aplikacja.dto.AppUserDto;
 import pl.pi5518.aplikacja.model.AppUser;
 import pl.pi5518.aplikacja.model.Token;
 import pl.pi5518.aplikacja.repository.AppUserRepo;
@@ -26,8 +27,11 @@ public class UserService {
         this.mailService = mailService;
     }
 
-    public void addUser(AppUser appUser) {
-        appUser.setPassword(passwordEncoder.encode(appUser.getPassword()));
+    public void addUser(AppUserDto appUserDto) {
+        AppUser appUser = new AppUser();
+        appUser.setUsername(appUserDto.getUsername());
+        appUser.setPassword(passwordEncoder.encode(appUserDto.getPassword()));
+        appUser.setMail(appUserDto.getMail());
         appUser.setRole("ROLE_USER");
         appUserRepo.save(appUser);
         sendToken(appUser);

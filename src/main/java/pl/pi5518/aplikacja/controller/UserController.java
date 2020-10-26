@@ -1,19 +1,20 @@
 package pl.pi5518.aplikacja.controller;
 
+import org.apache.catalina.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.*;
 import pl.pi5518.aplikacja.databases.Notebooks;
+import pl.pi5518.aplikacja.dto.AppUserDto;
 import pl.pi5518.aplikacja.model.Token;
 import pl.pi5518.aplikacja.repository.*;
 import pl.pi5518.aplikacja.service.UserService;
 import pl.pi5518.aplikacja.model.AppUser;
 
+import javax.validation.Valid;
 import java.security.Principal;
 import java.util.Collection;
 
@@ -28,13 +29,13 @@ public class UserController {
     private TabletsRepo tabletsRepo;
 
 
-    public UserController(UserService userService, TokenRepo tokenRepo, AppUserRepo appUserRepo ) {
+    public UserController(UserService userService, TokenRepo tokenRepo, AppUserRepo appUserRepo) {
         this.userService = userService;
         this.tokenRepo = tokenRepo;
         this.appUserRepo = appUserRepo;
     }
 
-        // for REST
+    // for REST
 //    @GetMapping("/hello")
 //    @ResponseBody
 //    public String hello(){
@@ -42,13 +43,13 @@ public class UserController {
 //    }
 
     @RequestMapping("/home")
-        public String homePage(){
-            return "index";
+    public String homePage() {
+        return "index";
     }
 
 
     @GetMapping("/hello")
-    public String forUser(Principal principal, Model model){
+    public String forUser(Principal principal, Model model) {
         model.addAttribute("name", principal.getName());
         Collection<? extends GrantedAuthority> authorities = SecurityContextHolder.getContext().getAuthentication().getAuthorities();
         Object details = SecurityContextHolder.getContext().getAuthentication().getDetails();
@@ -60,28 +61,43 @@ public class UserController {
     }
 
     @GetMapping("/sing-up")
-    public String singup(Model model){
-        model.addAttribute("user", new AppUser());
+    public String singup(Model model) {
+        model.addAttribute("user", new AppUserDto());
         return "sing-up";
     }
 
     @PostMapping("/register")
-    public String register(AppUser appUser){
-        System.out.println(appUser);
-        userService.addUser(appUser);
-        return "sing-up";
+    public String register(@ModelAttribute("user") @Valid AppUserDto appUserDto, BindingResult bindingResult) {
+        if (bindingResult.hasErrors())
+            return "sing-up";
+        if (appUserRepo.findByMail(appUserDto.getMail()).isPresent()){
+            bindingResult.rejectValue("mail", "wrongMail", "Podany e-mail już istnieje");
+            return "sing-up";
+        }
+        if (appUserRepo.findByUsername(appUserDto.getUsername()).isPresent()){
+            bindingResult.rejectValue("username", "wrongUsername", "Podany login już istnieje");
+            return "sing-up";
+        }
+        if (!appUserDto.getPassword().equals(appUserDto.getConfirmPassword())){
+            bindingResult.rejectValue("password", "wrongPassword", "Hasła nie są identyczne");
+            return "sing-up";
+        }
+        System.out.println(appUserDto);
+        userService.addUser(appUserDto);
+        return "redirect:/home";
     }
 
     @GetMapping("/token")
-    public String singup(@RequestParam String value ){
+    public String singup(@RequestParam String value) {
         Token byValue = tokenRepo.findByValue(value);
         AppUser appUser = byValue.getAppUser();
         appUser.setEnabled(true);
         appUserRepo.save(appUser);
         return "hello";
     }
+
     @RequestMapping("/czat")
-    public String czat(){
+    public String czat() {
         return "czat";
     }
 
