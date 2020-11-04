@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Step one</h1>
+<form th:action="@{/stepone}" th:object="${stepOneForm}" method="post">
+<select th:field="*{number}">
+    <option class="doHref" th:value="404" > Wybierz urządzenie</option>
+    <div th:each="option : ${stepOneOptions}">
+        <option th:text="${option.value}" th:value="${option.number}"> Urządzenie</option>
+    </div>
+</select>
+<button type="submit" value="submit">Dalej</button>
+</form>
+</body>
+</html>

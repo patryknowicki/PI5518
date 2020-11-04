@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Step Two</h1>
+<p>Z pierwszego: </p>
+<h5 th:text="${previousStepValue}">Value z pierwszego</h5>
+<form th:action="@{/steptwo}" th:object="${stepTwoForm}" method="post">
+    <select th:field="*{number}">
+        <option class="doHref" th:value="404"> Wybierz opcję</option>
+        <div th:each="option : ${stepTwoOptions}">
+            <option th:text="${option.value}" th:value="${option.number}"> Urzadzenie</option>
+        </div>
+    </select>
+    <button type="submit" value="submit">Dalej</button>
+</form>
+
+</body>
+</html>
