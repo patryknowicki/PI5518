@@ -2,11 +2,12 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Formularz serwisowy</title>
 </head>
 <body>
-<h1>Step Two</h1>
-<p>Z pierwszego: </p>
+<h1>Formularz serwisowy</h1>
+<h2>Część 2 z 3</h2>
+<p>Wybrane urządzenie: </p>
 <h5 th:text="${previousStepValue}">Value z pierwszego</h5>
 <form th:action="@{/steptwo}" th:object="${stepTwoForm}" method="post">
     <select th:field="*{number}">
