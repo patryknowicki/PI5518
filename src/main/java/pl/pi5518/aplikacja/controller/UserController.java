@@ -40,7 +40,7 @@ public class UserController {
 //        return "hello dla wszystkich";
 //    }
 
-    @RequestMapping("/home")
+    @RequestMapping("/")
     public String homePage() {
         return "index";
     }
