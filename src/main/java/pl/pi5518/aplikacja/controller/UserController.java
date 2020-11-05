@@ -1,13 +1,11 @@
 package pl.pi5518.aplikacja.controller;
 
-import org.apache.catalina.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-import pl.pi5518.aplikacja.databases.Notebooks;
 import pl.pi5518.aplikacja.dto.AppUserDto;
 import pl.pi5518.aplikacja.model.Token;
 import pl.pi5518.aplikacja.repository.*;
