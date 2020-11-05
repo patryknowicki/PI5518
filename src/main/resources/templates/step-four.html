@@ -3,11 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <title>Formularz serwisowy</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-<h1>Formularz serwisowy</h1>
-<h2>Przypuszczalna diagnoza:</h2>
+<div th:align="center">
+    <button type="button" class="btn btn-info btn-lg btn-block" disabled><h2>Formularz serwisowy</h2></button>
+    <br>
+    <h2>Przypuszczalna diagnoza:</h2>
 
-<h3 th:text="${stepFourOption}"> Rezultat </h3>
+    <u><h5 th:text="${stepFourOption}"> Rezultat </h5></u>
+    <br><br><br><br>
+    <button class="btn btn-outline-info" onclick="window.location.href='http://localhost:8080/'"><i
+            class="fa fa-home"></i> Powrót do strony głównej
+    </button>
+</div>
+
 </body>
 </html>

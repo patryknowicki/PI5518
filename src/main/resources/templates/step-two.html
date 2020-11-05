@@ -3,21 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <title>Formularz serwisowy</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-<h1>Formularz serwisowy</h1>
+<div th:align="center">
+    <button type="button" class="btn btn-info btn-lg btn-block" disabled><h2>Formularz serwisowy</h2></button>
+    <br>
 <h2>Część 2 z 3</h2>
 <p>Wybrane urządzenie: </p>
 <h5 th:text="${previousStepValue}">Value z pierwszego</h5>
 <form th:action="@{/steptwo}" th:object="${stepTwoForm}" method="post">
-    <select th:field="*{number}">
-        <option class="doHref" th:value="404"> Wybierz opcję</option>
+    <select th:field="*{number}"><br>
+        <option class="doHref" th:value="404"> Jaki jest problem?</option>
         <div th:each="option : ${stepTwoOptions}">
             <option th:text="${option.value}" th:value="${option.number}"> Urzadzenie</option>
         </div>
-    </select>
-    <button type="submit" value="submit">Dalej</button>
+    </select><br>
+    <button class="btn btn-info btn-sm" type="submit" value="submit">Dalej</button>
 </form>
-
+    <br><br><br><br>
+    <h6>Uwaga!</h6>
+    <h6>Formularz zwraca tylko <u>przybliżoną</u> diagnozę problemu i nie jest to w pełni miarodajny wynik.</h6>
+</div>
 </body>
 </html>

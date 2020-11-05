@@ -3,18 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <title>Formularz serwisowy</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-<h1>Formularz serwisowy</h1>
-<h2>Część 1 z 3</h2>
-<form th:action="@{/stepone}" th:object="${stepOneForm}" method="post">
-    <select th:field="*{number}">
-        <option class="doHref" th:value="404"> Wybierz urządzenie</option>
-        <div th:each="option : ${stepOneOptions}">
-            <option th:text="${option.value}" th:value="${option.number}"> Urządzenie</option>
-        </div>
-    </select>
-    <button type="submit" value="submit">Dalej</button>
-</form>
+<div th:align="center">
+    <button type="button" class="btn btn-info btn-lg btn-block" disabled><h2>Formularz serwisowy</h2></button>
+    <br>
+    <h2>Część 1 z 3</h2>
+    <h4>Czego dotyczy problem?</h4><br>
+    <form th:action="@{/stepone}" th:object="${stepOneForm}" method="post">
+        <select th:field="*{number}">
+            <option class="doHref" th:value="404"> Wybierz urządzenie</option>
+            <div th:each="option : ${stepOneOptions}">
+                <option th:text="${option.value}" th:value="${option.number}"> Urządzenie</option>
+            </div>
+        </select><br>
+        <button class="btn btn-info btn-sm" type="submit" value="submit">Dalej</button>
+    </form>
+    <br><br><br><br>
+    <h6>Uwaga!</h6>
+    <h6>Formularz zwraca tylko <u>przybliżoną</u> diagnozę problemu i nie jest to w pełni miarodajny wynik.</h6>
+
+</div>
 </body>
 </html>
