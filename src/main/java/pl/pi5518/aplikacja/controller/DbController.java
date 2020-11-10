@@ -3,10 +3,7 @@ package pl.pi5518.aplikacja.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import pl.pi5518.aplikacja.databases.Notebooks;
 import pl.pi5518.aplikacja.databases.Pcs;
 import pl.pi5518.aplikacja.databases.Tablets;
@@ -91,5 +88,32 @@ public class DbController {
         }
         model.addAttribute("pcs", pcsRepo.findAll());
         return "list-pcs";
+    }
+    @RequestMapping("/delete-notebook")
+    public String deleteNotebook(@RequestParam("id") Integer id, Model model){
+        notebooksRepo.deleteById(id);
+
+        model.addAttribute("notebooks", notebooksRepo.findAll());
+        return "list-notebooks";
+    }
+    @RequestMapping("/delete-tablet")
+    public String deleteTablet(@RequestParam("id") Integer id, Model model){
+        tabletsRepo.deleteById(id);
+
+        model.addAttribute("tablets", tabletsRepo.findAll());
+        return "list-tablets";
+    }
+    @RequestMapping("/delete-pc")
+    public String deletePc(@RequestParam("id") Integer id, Model model){
+        pcsRepo.deleteById(id);
+
+        model.addAttribute("pcs", pcsRepo.findAll());
+        return "list-pcs";
+    }
+    @RequestMapping("/search")
+    public String search(@RequestParam("criterion") String criterion, Model model){
+        model.addAttribute("tablets", tabletsRepo.findAllByproducent(criterion));
+        model.addAttribute("notebooks", notebooksRepo.findAllByproducent(criterion));
+        return "list-tablets";
     }
 }

@@ -54,6 +54,14 @@
         <td th:text="${wpis.wyjscia_karty_graficznej}">wyjscia_karty_graficznej</td>
         <td th:text="${wpis.cena}">cena</td>
 
+        <td>
+            <a href="#" th:href="@{/details-notebook(id=${wpis.id})}" class="btn btn-outline-primary"
+               data-toggle="tooltip" data-placement="top" title="Szczegółowe informacje"></i>Szczegóły</a>
+        </td>
+
+        <td>
+            <a href="#" th:href="@{/delete-notebook(id=${wpis.id})}" class="btn btn-danger"
+               data-toggle="tooltip" data-placement="top" title="Usuń na zawsze"></i>Usuń</a></td>
 
 </table>
 

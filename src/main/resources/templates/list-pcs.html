@@ -58,6 +58,14 @@
         <td th:text="${wpis.liczba_wentylatorow}">liczba_wentylatorow</td>
         <td th:text="${wpis.cena}">cena</td>
 
+        <td>
+            <a href="#" th:href="@{/details-pc(id=${wpis.id})}" class="btn btn-outline-primary"
+               data-toggle="tooltip" data-placement="top" title="Szczegółowe informacje"></i>Szczegóły</a>
+        </td>
+
+        <td>
+            <a href="#" th:href="@{/delete-pc(id=${wpis.id})}" class="btn btn-danger"
+               data-toggle="tooltip" data-placement="top" title="Usuń na zawsze"></i>Usuń</a></td>
 
 </table>
 
