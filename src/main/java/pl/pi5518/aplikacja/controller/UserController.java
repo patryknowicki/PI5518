@@ -48,6 +48,11 @@ public class UserController {
         return "index-after-log";
     }
 
+    @RequestMapping("/after-logout")
+    public String homePageAfterLogout() {
+        return "index-after-logout";
+    }
+
     @RequestMapping("/contact")
     public String contact() {
         return "contact";

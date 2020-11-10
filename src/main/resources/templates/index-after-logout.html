@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+<button type="button" class="btn btn-success btn-lg btn-block" disabled><h2>Wylogowano pomyślnie!</h2></button>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li sec:authorize="isAnonymous()" class="nav-item active">
+                <button type="button" onclick="window.location.href='http://localhost:8080/login'"
+                        class="btn btn-secondary btn-lg btn-block">Zaloguj!
+                </button>
+            </li>
+            <li sec:authorize="isAnonymous()" class="nav-item active">
+                <button type="button" onclick="window.location.href='http://localhost:8080/sing-up'"
+                        class="btn btn-info btn-lg btn-block">Zarejestruj się!
+                </button>
+            </li>
+            <li sec:authorize="isAuthenticated()" class="nav-item active">
+                <button type="button" onclick="window.location.href='http://localhost:8080/logout'"
+                        class="btn btn-info btn-lg btn-block">Wyloguj
+                </button>
+            </li>
+
+
+
+
+        </ul>
+        <form class="form-inline my-2 my-lg-0" action="http://localhost:8080/search">
+            <input  name="criterion" class="form-control mr-sm-2" type="search" placeholder="szukaj producenta " aria-label="Search">
+            <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Szukaj</button>
+        </form>
+    </div>
+</nav>
+
+<button type="button" class="btn btn-light btn-lg btn-block" disabled></button>
+
+<ul class="nav justify-content-center">
+    <li class="nav-item active">
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top"
+                 src="https://www.flaticon.com/svg/static/icons/svg/2292/2292112.svg"
+                 width="150" height="150"
+                 alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">Komputery stacjonarne</h5>
+                <p class="card-text">Największy wybór komputerów stacjonarnych zarówno gamingowych jak i biurowych!</p>
+                <a href="#" onclick="window.location.href='http://localhost:8080/list-pcs'" class="btn btn-info">Wybierz</a>
+            </div>
+        </div>
+    </li>
+    <li class="nav-item active">
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top"
+                 src="https://www.flaticon.com/svg/static/icons/svg/606/606286.svg"
+                 width="150" height="150"
+                 alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">Laptopy</h5>
+                <p class="card-text">Laptopy, Zenbooki, Ultrabooki, Macbooki i wiele innych? Znajdziesz je tutaj.</p>
+                <a href="#" onclick="window.location.href='http://localhost:8080/list-notebooks'" class="btn btn-info">Wybierz</a>            </div>
+        </div>
+    </li>
+    <li class="nav-item active">
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top"
+                 src="https://www.flaticon.com/svg/static/icons/svg/2237/2237056.svg"
+                 width="150" height="150"
+                 alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">Tablety</h5>
+                <p class="card-text">Najnowsze modele w najlepszych cenach! Najlepsi producenci w jednym miejscu!</p>
+                <a href="#" onclick="window.location.href='http://localhost:8080/list-tablets'" class="btn btn-info">Wybierz</a>            </div>
+        </div>
+    </li>
+    <li class="nav-item active">
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top"
+                 src="https://www.flaticon.com/svg/static/icons/svg/892/892228.svg"
+                 width="150" height="150"
+                 alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">Czat</h5>
+                <p class="card-text">Masz pytanie? Dołącz do czatu i zadaj je uczestnikom konwersacji! Podziel się swoją wiedzą!</p>
+                <a href="#" onclick="window.location.href='http://localhost:8080/czat'" class="btn btn-info">Wybierz</a>            </div>
+        </div>
+    </li>
+    <li class="nav-item active">
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top"
+                 src="https://www.flaticon.com/svg/static/icons/svg/1969/1969973.svg"
+                 width="150" height="150"
+                 alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">Formularz serwisowy</h5>
+                <p class="card-text">Nie chcesz dzwonić? Wypełnij formularz serwisowy, a diagnozę dostaniesz od razu!</p>
+                <a href="#" onclick="window.location.href='http://localhost:8080/stepone'" class="btn btn-info">Wybierz</a>            </div>
+        </div>
+    </li>
+    <li class="nav-item active">
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top"
+                 src="https://www.flaticon.com/svg/static/icons/svg/1250/1250568.svg"
+                 width="150" height="150"
+                 alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">Kontakt</h5>
+                <p class="card-text">Zadzwoń do nas już dziś! Informacje kontaktowe znajdziesz tutaj.</p>
+                <a href="#" onclick="window.location.href='http://localhost:8080/contact'"class="btn btn-info">Wybierz</a>            </div>
+        </div>
+    </li>
+</ul>
+</body>
+<br><br><br><br><br><br><br>
+<footer th:align="center"><i class="fa fa-github" style="font-size:24px"></i> <a href="https://github.com/patryknowicki">github.com/patryknowicki</a> </footer>
+</html>
