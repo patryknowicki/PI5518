@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li sec:authorize="isAnonymous()" class="nav-item active">
+                <button type="button" onclick="window.location.href='http://localhost:8080/login'"
+                        class="btn btn-secondary btn-lg btn-block">Zaloguj!
+                </button>
+            </li>
+            <li sec:authorize="isAnonymous()" class="nav-item active">
+                <button type="button" onclick="window.location.href='http://localhost:8080/sing-up'"
+                        class="btn btn-info btn-lg btn-block">Zarejestruj się!
+                </button>
+            </li>
+            <li sec:authorize="isAuthenticated()" class="nav-item active">
+                <button type="button" onclick="window.location.href='http://localhost:8080/logout'"
+                        class="btn btn-info btn-lg btn-block">Wyloguj
+                </button>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<button type="button" class="btn btn-light btn-lg btn-block" disabled></button>
+<div th:align="center">
+<div th:align="center" class="card" style="width: 26rem;">
+    <h5 class="card-title">Kim jestem?</h5>
+    <img class="card-img-top"
+         src="https://zapodaj.net/images/5063af1d1ee58.jpg"
+         width="250" height="300"
+         alt="Card image cap">
+    <div class="card-body">
+        <p class="card-text">Cześć! Nazywam się Patryk i studiuję Informatykę we Wrocławskiej Szkole Informatyki Stosowanej
+            na specjalizacji programowanie. Aplikacja została stworzona jako integralna część pracy dyplomowej - inżynierskiej.</p>
+    </div>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">Promotor: mgr Maciej Muras<br>
+            <i class="fa fa-internet-explorer"></i> <a href="http://www.maciejmuras.com/">maciejmuras.com</a></i>
+        </li>
+        <li class="list-group-item">Wrocławska Wyższa Szkoła Informatyki Stosowanej<br>
+            <i class="fa fa-facebook-official"></i> <a href="https://www.facebook.com/wwsis.horyzont">facebook.com/wwsis.horyzont</a></i>
+        </li>
+    </ul>
+    <div class="card-body">
+        <i class="fa fa-github"></i>
+        <a href="https://github.com/patryknowicki">github.com/patryknowicki</a>
+    </div>
+</div>
+</div>
+</body>
+</html>
