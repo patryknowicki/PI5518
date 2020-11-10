@@ -54,14 +54,7 @@ public class UserController {
     }
 
     @GetMapping("/hello")
-    public String forUser(Principal principal, Model model) {
-        model.addAttribute("name", principal.getName());
-        Collection<? extends GrantedAuthority> authorities = SecurityContextHolder.getContext().getAuthentication().getAuthorities();
-        Object details = SecurityContextHolder.getContext().getAuthentication().getDetails();
-
-        model.addAttribute("authorities", authorities);
-        model.addAttribute("details", details);
-        principal.getName();
+    public String hello() {
         return "hello";
     }
 
