@@ -8,5 +8,6 @@ import java.util.List;
 
 @Repository
 public interface NotebooksRepo extends JpaRepository<Notebooks, Integer> {
+    List<Notebooks> findAllByproducent(String search);
 
 }
