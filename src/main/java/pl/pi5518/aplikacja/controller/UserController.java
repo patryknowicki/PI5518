@@ -42,7 +42,7 @@ public class UserController {
 
     @RequestMapping("/")
     public String homePage() {
-        return "hello";
+        return "index";
     }
 
     @RequestMapping("/after-reg")
