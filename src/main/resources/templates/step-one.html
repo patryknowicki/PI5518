@@ -9,6 +9,18 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li sec:authorize="isAnonymous()" class="nav-item active">
+            <li sec:authorize="isAuthenticated()" class="nav-item active">
+                <button type="button" onclick="window.location.href='http://localhost:8080/logout'"
+                        class="btn btn-info btn-lg btn-block">Wyloguj
+                </button>
+            </li>
+        </ul>
+    </div>
+</nav>
 <div th:align="center">
     <button type="button" class="btn btn-info btn-lg btn-block" disabled><h2>Formularz serwisowy</h2></button>
     <br>
@@ -26,6 +38,10 @@
     <br><br><br><br>
     <h6>Uwaga!</h6>
     <h6>Formularz zwraca tylko <u>przybliżoną</u> diagnozę problemu i nie jest to w pełni miarodajny wynik.</h6>
+    <br><br>
+    <button class="btn btn-outline-info" onclick="window.location.href='http://localhost:8080/'"><i
+            class="fa fa-home"></i> Powrót do strony głównej
+    </button>
 
 </div>
 </body>

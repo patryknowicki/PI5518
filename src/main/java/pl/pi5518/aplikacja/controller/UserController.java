@@ -33,13 +33,6 @@ public class UserController {
         this.appUserRepo = appUserRepo;
     }
 
-    // for REST
-//    @GetMapping("/hello")
-//    @ResponseBody
-//    public String hello(){
-//        return "hello dla wszystkich";
-//    }
-
     @RequestMapping("/")
     public String homePage() {
         return "index";
