@@ -87,7 +87,7 @@ public class UserController {
         }
         System.out.println(appUserDto);
         userService.addUser(appUserDto);
-        return "redirect:/";
+        return "redirect:/after-reg";
     }
 
     @GetMapping("/token")
