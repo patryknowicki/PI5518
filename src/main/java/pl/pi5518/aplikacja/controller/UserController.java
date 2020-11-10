@@ -55,6 +55,10 @@ public class UserController {
         return "index-after-log";
     }
 
+    @RequestMapping("/contact")
+    public String contact() {
+        return "contact";
+    }
 
     @GetMapping("/hello")
     public String forUser(Principal principal, Model model) {

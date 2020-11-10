@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
     <meta charset="UTF-8">
     <title>Home</title>
@@ -12,14 +13,19 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
+            <li sec:authorize="isAnonymous()" class="nav-item active">
                 <button type="button" onclick="window.location.href='http://localhost:8080/login'"
                         class="btn btn-secondary btn-lg btn-block">Zaloguj!
                 </button>
             </li>
-            <li class="nav-item active">
+            <li sec:authorize="isAnonymous()" class="nav-item active">
                 <button type="button" onclick="window.location.href='http://localhost:8080/sing-up'"
                         class="btn btn-info btn-lg btn-block">Zarejestruj się!
+                </button>
+            </li>
+            <li sec:authorize="isAuthenticated()" class="nav-item active">
+                <button type="button" onclick="window.location.href='http://localhost:8080/logout'"
+                        class="btn btn-info btn-lg btn-block">Wyloguj
                 </button>
             </li>
 
@@ -107,7 +113,7 @@
             <div class="card-body">
                 <h5 class="card-title">Kontakt</h5>
                 <p class="card-text">Zadzwoń do nas już dziś! Informacje kontaktowe znajdziesz tutaj.</p>
-                <a href="#" onclick="window.location.href='http://localhost:8080/kontakt'"class="btn btn-info">Wybierz</a>            </div>
+                <a href="#" onclick="window.location.href='http://localhost:8080/contact'"class="btn btn-info">Wybierz</a>            </div>
         </div>
     </li>
 </ul>
