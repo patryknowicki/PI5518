@@ -34,6 +34,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.headers().disable();
         http.authorizeRequests()
                 .antMatchers("/stepone").authenticated()
+                .antMatchers("/steptwo").authenticated()
+                .antMatchers("/stepthree").authenticated()
+                .antMatchers("/stepfour").authenticated()
 //                .antMatchers("/for-admin").hasRole("ADMIN")
 //                .antMatchers("/for-user").hasRole("USER")
                 .and()
