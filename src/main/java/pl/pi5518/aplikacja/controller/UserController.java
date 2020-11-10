@@ -42,7 +42,12 @@ public class UserController {
 
     @RequestMapping("/")
     public String homePage() {
-        return "index";
+        return "hello";
+    }
+
+    @RequestMapping("/after-reg")
+    public String homePageAfterReg() {
+        return "index-after-reg";
     }
 
 
@@ -82,7 +87,7 @@ public class UserController {
         }
         System.out.println(appUserDto);
         userService.addUser(appUserDto);
-        return "redirect:/home";
+        return "redirect:/";
     }
 
     @GetMapping("/token")
