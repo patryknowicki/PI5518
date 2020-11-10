@@ -50,6 +50,11 @@ public class UserController {
         return "index-after-reg";
     }
 
+    @RequestMapping("/after-log")
+    public String homePageAfterLog() {
+        return "index-after-log";
+    }
+
 
     @GetMapping("/hello")
     public String forUser(Principal principal, Model model) {
