@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head lang="pl">
+    <head>
+        <meta charset="UTF-8">
+        <title>Laptopy</title>
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+              integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+              crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    </head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li sec:authorize="isAnonymous()" class="nav-item active">
+                <button type="button" onclick="window.location.href='http://localhost:8080/login'"
+                        class="btn btn-secondary btn-lg btn-block">Zaloguj!
+                </button>
+            </li>
+            <li sec:authorize="isAnonymous()" class="nav-item active">
+                <button type="button" onclick="window.location.href='http://localhost:8080/sing-up'"
+                        class="btn btn-info btn-lg btn-block">Zarejestruj się!
+                </button>
+            </li>
+            <li sec:authorize="isAuthenticated()" class="nav-item active">
+                <button type="button" onclick="window.location.href='http://localhost:8080/logout'"
+                        class="btn btn-info btn-lg btn-block">Wyloguj
+                </button>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0" action="http://localhost:8080/search">
+            <input name="criterion" class="form-control mr-sm-2" type="search" placeholder="szukaj producenta "
+                   aria-label="Search">
+            <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Szukaj</button>
+        </form>
+    </div>
+</nav>
+
+<div align="center">
+    <button type="button" class="btn btn-info btn-lg btn-block" disabled><h2>Spis tabletów</h2></button>
+
+    <table class="table table-bordered">
+        <tr>
+            <th style="color:#5bc0de;">#</th>
+            <th>Producent</th>
+            <th>Grupa produktowa</th>
+            <th>Ilość rdzeni</th>
+            <th>Ilość RAM</th>
+            <th>Cena</th>
+        </tr>
+
+        <tr th:each="wpis: ${tablets}">
+            <td><i class="material-icons" style="font-size:40px; color: #5bc0de">tablet</i></td>
+            <td th:text="${wpis.producent}">producent</td>
+            <td th:text="${wpis.grupa_produktowa}">grupa_produktowa</td>
+            <td th:text="${wpis.ilosc_rdzeni}">ilosc_rdzeni</td>
+            <td th:text="${wpis.ram}+' GB'">ram</td>
+            <td th:text="${wpis.cena}+' zł'">cena</td>
+
+            <td>
+                <a th:href="@{/details-notebook(id=${wpis.id})}" class="btn btn-outline-info"
+                   data-toggle="tooltip" data-placement="top" title="Szczegółowe informacje"></i>Szczegóły</a>
+                <a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/delete-tablet(id=${wpis.id})}"
+                   class="btn btn-danger"
+                   data-toggle="tooltip" data-placement="top" title="Usuń na zawsze"></i>Usuń</a></td>
+            </td>
+        </tr>
+
+    </table>
+
+    <div align="right">
+
+        <input sec:authorize="hasRole('ROLE_ADMIN')" type="button" class="btn btn-info btn-lg"
+               value="Dodaj nowe urządzenie"
+               onclick="window.location.href='http://localhost:8080/newTablet'">
+    </div>
+</div>
+
+<div align="center">
+    <button class="btn btn-outline-info" onclick="window.location.href='http://localhost:8080/'"><i
+            class="fa fa-home"></i> Powrót do strony głównej
+    </button>
+</div>
+
+</body>
+</html>
