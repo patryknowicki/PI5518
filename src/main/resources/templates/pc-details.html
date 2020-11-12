@@ -55,33 +55,17 @@
 <div align="center">
     <button type="button" class="btn btn-info btn-lg btn-block" disabled><h2>Spis komputerów stacjonarnych</h2></button>
 
-    <table class="table table-bordered">
-        <tr>
-            <th style="color:#5bc0de;">#</th>
-            <th>Producent</th>
-            <th>Grupa produktowa</th>
-            <th>Ilość rdzeni</th>
-            <th>Ilość RAM</th>
-            <th>Cena</th>
-        </tr>
 
-        <tr th:each="wpis: ${pcs}">
-            <td><i class="material-icons" style="font-size:40px; color: #5bc0de">desktop_windows</i></td>
-            <td th:text="${wpis.producent}">producent</td>
-            <td th:text="${wpis.grupa_produktowa}">grupa_produktowa</td>
-            <td th:text="${wpis.ilosc_rdzeni}">ilosc_rdzeni</td>
-            <td th:text="${wpis.ram}+' GB'">ram</td>
-            <td th:text="${wpis.cena}+' zł'">cena</td>
 
-            <td>
-                <a th:href="@{'details-pc/' + ${wpis.id}}" class="btn btn-outline-info"
-                   data-toggle="tooltip" data-placement="top" title="Szczegółowe informacje"></i>Szczegóły</a>
-                <a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/delete-pc(id=${wpis.id})}" class="btn btn-danger"
-                   data-toggle="tooltip" data-placement="top" title="Usuń na zawsze"></i>Usuń</a></td>
-            </td>
-        </tr>
+    <p th:text="${pcdetails.producent}">
 
-    </table>
+    </p>
+
+
+
+
+
+
 
     <div align="right">
 

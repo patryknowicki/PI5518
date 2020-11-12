@@ -91,6 +91,12 @@ public class DbController {
         return "list-pcs";
     }
 
+    @RequestMapping("/details-pc/{id}")
+    public String details(Model model, @PathVariable ("id") Integer id){
+        model.addAttribute("pcdetails", pcsRepo.findById(id).get());
+        return "pc-details";
+    }
+
     @RequestMapping("/delete-notebook")
     public String deleteNotebook(@RequestParam("id") Integer id, Model model) {
         notebooksRepo.deleteById(id);
@@ -132,5 +138,6 @@ public class DbController {
         model.addAttribute("pcs", pcsRepo.findAllByproducent(criterion));
         return "list-pcs";
     }
+
 
 }
