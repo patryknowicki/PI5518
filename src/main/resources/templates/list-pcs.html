@@ -36,13 +36,21 @@
                 </button>
             </li>
         </ul>
-        <form class="form-inline my-2 my-lg-0" action="http://localhost:8080/search">
-            <input  name="criterion" class="form-control mr-sm-2" type="search" placeholder="szukaj producenta " aria-label="Search">
+        <form class="form-inline my-2 my-lg-0" action="http://localhost:8080/search-pcs">
+            <input name="criterion" class="form-control mr-sm-2" type="search" placeholder="szukaj producenta "
+                   aria-label="Search">
             <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Szukaj</button>
         </form>
     </div>
 </nav>
-<p sec:authorize="hasRole('ROLE_ADMIN')" align="center" style="color:red;">Jesteś zalogowany jako <b>ADMINISTRATOR</b></p>
+<button class="btn btn-outline-info" onclick="goBack()"><i class="material-icons" style="font-size:48px;color:#5bc0de;">
+    arrow_back </i>
+</button>
+<button type="button" class="btn btn-light btn-lg btn-block" disabled></button>
+
+
+<p sec:authorize="hasRole('ROLE_ADMIN')" align="center" style="color:red;">Jesteś zalogowany jako <b>ADMINISTRATOR</b>
+</p>
 
 <div align="center">
     <button type="button" class="btn btn-info btn-lg btn-block" disabled><h2>Spis komputerów stacjonarnych</h2></button>
@@ -88,6 +96,6 @@
             class="fa fa-home"></i> Powrót do strony głównej
     </button>
 </div>
-
+<script src="js/goback.js"></script>
 </body>
 </html>
