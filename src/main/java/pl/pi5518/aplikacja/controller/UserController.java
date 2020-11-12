@@ -43,16 +43,6 @@ public class UserController {
         return "index-after-reg";
     }
 
-    @RequestMapping("/after-log")
-    public String homePageAfterLog() {
-        return "index-after-log";
-    }
-
-    @RequestMapping("/after-logout")
-    public String homePageAfterLogout() {
-        return "index-after-logout";
-    }
-
     @RequestMapping("/contact")
     public String contact() {
         return "contact";
@@ -61,6 +51,16 @@ public class UserController {
     @GetMapping("/hello")
     public String hello() {
         return "hello";
+    }
+
+    @RequestMapping("/after-log")
+    public String homePageAfterLog() {
+        return "index-after-log";
+    }
+
+    @RequestMapping("/after-logout")
+    public String homePageAfterLogout() {
+        return "index-after-logout";
     }
 
     @GetMapping("/sing-up")

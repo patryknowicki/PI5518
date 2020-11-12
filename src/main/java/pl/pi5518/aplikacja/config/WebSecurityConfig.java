@@ -33,7 +33,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.csrf().disable();
         http.headers().disable();
         http.authorizeRequests()
-                .antMatchers("/stepone").authenticated()
+                //.antMatchers("/stepone").authenticated()
                 .antMatchers("/steptwo").authenticated()
                 .antMatchers("/stepthree").authenticated()
                 .antMatchers("/stepfour").authenticated()
