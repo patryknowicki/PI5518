@@ -90,15 +90,6 @@ public class UserController {
         return "redirect:/after-reg";
     }
 
-    @GetMapping("/token")
-    public String singup(@RequestParam String value) {
-        Token byValue = tokenRepo.findByValue(value);
-        AppUser appUser = byValue.getAppUser();
-        appUser.setEnabled(true);
-        appUserRepo.save(appUser);
-        return "hello";
-    }
-
     @RequestMapping("/czat")
     public String czat() {
         return "czat";
