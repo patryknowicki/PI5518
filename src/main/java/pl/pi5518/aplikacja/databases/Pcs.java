@@ -37,6 +37,8 @@ public class Pcs {
 
     private Double cena;
 
+    private String typ = "pc";
+
     @Transient
     boolean isNew;
 

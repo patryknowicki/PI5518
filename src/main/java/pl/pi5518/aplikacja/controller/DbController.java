@@ -11,6 +11,9 @@ import pl.pi5518.aplikacja.repository.NotebooksRepo;
 import pl.pi5518.aplikacja.repository.PcsRepo;
 import pl.pi5518.aplikacja.repository.TabletsRepo;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Controller
 public class DbController {
     private NotebooksRepo notebooksRepo;
@@ -138,6 +141,23 @@ public class DbController {
         model.addAttribute("pcs", pcsRepo.findAllByproducent(criterion));
         return "list-pcs";
     }
-
+    @RequestMapping("/search")
+    public String search(@RequestParam("criterion") String criterion, Model model) {
+        List<Object> list = new ArrayList<>();
+        List<Pcs> listPcs =  pcsRepo.findAllByproducent(criterion);
+        List<Notebooks> listNotebooks =  notebooksRepo.findAllByproducent(criterion);
+        List<Tablets> listTablets =  tabletsRepo.findAllByproducent(criterion);
+        for (Pcs pcs : listPcs){
+            list.add(pcs);
+        }
+        for (Notebooks notebooks : listNotebooks){
+            list.add(notebooks);
+        }
+        for (Tablets tablets : listTablets){
+            list.add(tablets);
+        }
+        model.addAttribute("fulllist", list);
+        return "search-list";
+    }
 
 }

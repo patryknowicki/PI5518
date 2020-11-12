@@ -32,6 +32,8 @@ public class Notebooks {
 
     private Double cena;
 
+    private String typ = "notebook";
+
     @Transient
     boolean isNew;
 

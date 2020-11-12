@@ -26,6 +26,8 @@ public class Tablets {
 
     private Double cena;
 
+    private String typ = "tablet";
+
     @Transient
     boolean isNew;
 
