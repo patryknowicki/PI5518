@@ -1,20 +1,14 @@
 package pl.pi5518.aplikacja.controller;
 
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import pl.pi5518.aplikacja.dto.AppUserDto;
-import pl.pi5518.aplikacja.model.Token;
 import pl.pi5518.aplikacja.repository.*;
 import pl.pi5518.aplikacja.service.UserService;
-import pl.pi5518.aplikacja.model.AppUser;
 
 import javax.validation.Valid;
-import java.security.Principal;
-import java.util.Collection;
 
 @Controller
 public class UserController {
@@ -22,45 +16,11 @@ public class UserController {
     private UserService userService;
     private TokenRepo tokenRepo;
     private AppUserRepo appUserRepo;
-    private NotebooksRepo notebooksRepo;
-    private PcsRepo pcsRepo;
-    private TabletsRepo tabletsRepo;
-
 
     public UserController(UserService userService, TokenRepo tokenRepo, AppUserRepo appUserRepo) {
         this.userService = userService;
         this.tokenRepo = tokenRepo;
         this.appUserRepo = appUserRepo;
-    }
-
-    @RequestMapping("/")
-    public String homePage() {
-        return "index";
-    }
-
-    @RequestMapping("/after-reg")
-    public String homePageAfterReg() {
-        return "index-after-reg";
-    }
-
-    @RequestMapping("/contact")
-    public String contact() {
-        return "contact";
-    }
-
-    @GetMapping("/hello")
-    public String hello() {
-        return "hello";
-    }
-
-    @RequestMapping("/after-log")
-    public String homePageAfterLog() {
-        return "index-after-log";
-    }
-
-    @RequestMapping("/after-logout")
-    public String homePageAfterLogout() {
-        return "index-after-logout";
     }
 
     @GetMapping("/sing-up")
@@ -89,10 +49,4 @@ public class UserController {
         userService.addUser(appUserDto);
         return "redirect:/after-reg";
     }
-
-    @RequestMapping("/czat")
-    public String czat() {
-        return "czat";
-    }
-
 }
