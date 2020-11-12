@@ -12,7 +12,6 @@
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     </head>
 <body>
-
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
@@ -31,14 +30,19 @@
                         class="btn btn-info btn-lg btn-block">Wyloguj
                 </button>
             </li>
+            <li sec:authorize="hasRole('ROLE_ADMIN')" class="nav-item active">
+                <button type="button" onclick="window.location.href='http://localhost:8080/h2'"
+                        class="btn btn-warning btn-lg btn-block">Baza danych
+                </button>
+            </li>
         </ul>
         <form class="form-inline my-2 my-lg-0" action="http://localhost:8080/search">
-            <input name="criterion" class="form-control mr-sm-2" type="search" placeholder="szukaj producenta "
-                   aria-label="Search">
+            <input  name="criterion" class="form-control mr-sm-2" type="search" placeholder="szukaj producenta " aria-label="Search">
             <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Szukaj</button>
         </form>
     </div>
 </nav>
+<p sec:authorize="hasRole('ROLE_ADMIN')" align="center" style="color:red;">Jesteś zalogowany jako <b>ADMINISTRATOR</b></p>
 
 <div align="center">
     <button type="button" class="btn btn-info btn-lg btn-block" disabled><h2>Spis komputerów stacjonarnych</h2></button>
