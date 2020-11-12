@@ -37,7 +37,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/steptwo").authenticated()
                 .antMatchers("/stepthree").authenticated()
                 .antMatchers("/stepfour").authenticated()
-//                .antMatchers("/for-admin").hasRole("ADMIN")
+
+                .antMatchers("/h2").hasRole("ADMIN")
+                .antMatchers("/newNotebook").hasRole("ADMIN")
+                .antMatchers("/newPc").hasRole("ADMIN")
+                .antMatchers("/newTablet").hasRole("ADMIN")
+
 //                .antMatchers("/for-user").hasRole("USER")
                 .and()
                 .formLogin().defaultSuccessUrl("/after-log")
