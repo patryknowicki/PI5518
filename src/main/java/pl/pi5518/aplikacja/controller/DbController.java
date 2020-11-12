@@ -115,10 +115,22 @@ public class DbController {
         return "list-pcs";
     }
 
-    @RequestMapping("/search")
-    public String search(@RequestParam("criterion") String criterion, Model model) {
+    @RequestMapping("/search-tablets")
+    public String searchTablets(@RequestParam("criterion") String criterion, Model model) {
         model.addAttribute("tablets", tabletsRepo.findAllByproducent(criterion));
-        return "list-tablets-ext";
+        return "list-tablets";
+    }
+
+    @RequestMapping("/search-notebooks")
+    public String searchNotebooks(@RequestParam("criterion") String criterion, Model model) {
+        model.addAttribute("notebooks", notebooksRepo.findAllByproducent(criterion));
+        return "list-notebooks";
+    }
+
+    @RequestMapping("/search-pcs")
+    public String searchPcs(@RequestParam("criterion") String criterion, Model model) {
+        model.addAttribute("pcs", pcsRepo.findAllByproducent(criterion));
+        return "list-pcs";
     }
 
 }
