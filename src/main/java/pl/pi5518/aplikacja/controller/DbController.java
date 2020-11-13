@@ -95,9 +95,21 @@ public class DbController {
     }
 
     @RequestMapping("/details-pc/{id}")
-    public String details(Model model, @PathVariable ("id") Integer id){
+    public String detailsPc(Model model, @PathVariable ("id") Integer id){
         model.addAttribute("pcdetails", pcsRepo.findById(id).get());
         return "details-pc";
+    }
+
+    @RequestMapping("/details-notebook/{id}")
+    public String detailsNotebook(Model model, @PathVariable ("id") Integer id){
+        model.addAttribute("notebookdetails", notebooksRepo.findById(id).get());
+        return "details-notebook";
+    }
+
+    @RequestMapping("/details-tablet/{id}")
+    public String detailsTablet(Model model, @PathVariable ("id") Integer id){
+        model.addAttribute("tabletdetails", tabletsRepo.findById(id).get());
+        return "details-tablet";
     }
 
     @RequestMapping("/delete-notebook")
