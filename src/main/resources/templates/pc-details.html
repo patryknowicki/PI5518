@@ -16,7 +16,8 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <button onclick="window.location.href='http://localhost:8080/list-pcs'" class="btn btn-info btn-lg btn-block">
+                <button onclick="window.location.href='http://localhost:8080/list-pcs'"
+                        class="btn btn-info btn-lg btn-block">
                     <i class="material-icons">arrow_back</i>
                 </button>
             </li>
@@ -54,28 +55,62 @@
 
 <p sec:authorize="hasRole('ROLE_ADMIN')" align="center" style="color:red;">Jesteś zalogowany jako <b>ADMINISTRATOR</b>
 </p>
+<div align="center" style="font-size: large">
+<table align="center">
 
-<div align="center">
-    <button type="button" class="btn btn-info btn-lg btn-block" disabled><h2>Spis komputerów stacjonarnych</h2></button>
+    <h2 style="color: #5bc0de">Dane techniczne</h2>
+    <b>Producent: </b> <a th:text="${pcdetails.producent}"></a><br>
+    <b>Model: </b> <a th:text="${pcdetails.grupa_produktowa}"></a><br>
+    <b>System operacyjny: </b> <a th:text="${pcdetails.system_operacyjny}"></a><br>
+    <b>Rodzaj: </b> <a th:text="${pcdetails.rodzaj}"></a><br>
+    <b>Seria: </b> <a th:text="${pcdetails.seria}"></a><br>
 
 
-    <p th:text="${pcdetails.producent}">
-
+    <p>
+    <h2 style="color: #5bc0de">Procesor</h2>
+    <b>Typ procesora: </b> <a th:text="${pcdetails.typ_procesora}"></a><br>
+    <b>Seria procesora: </b> <a th:text="${pcdetails.seria_procesora}"></a><br>
+    <b>Model procesora: </b> <a th:text="${pcdetails.model_procesora}"></a><br>
+    <b>Ilość rdzeni: </b> <a th:text="${pcdetails.ilosc_rdzeni}"></a><br>
     </p>
 
+    <p>
+    <h2 style="color: #5bc0de">Karta graficzna</h2>
+    <b>Karta graficzna: </b> <a th:text="${pcdetails.karta_graficzna}"></a><br>
+    <b>Wyjścia karty graficznej: </b> <a th:text="${pcdetails.wyjscia_karty_graficznej}"></a><br>
+    </p>
 
-    <div align="right">
+    <p>
+    <h2 style="color: #5bc0de">Pamięć</h2>
+    <b>Ilość pamięci RAM: </b> <a th:text="${pcdetails.ram}"></a><br>
+    <b>Rodzaj pamięci RAM: </b> <a th:text="${pcdetails.rodzaj_ram}"></a><br>
+    </p>
 
-        <input sec:authorize="hasRole('ROLE_ADMIN')" type="button" class="btn btn-info btn-lg"
-               value="Dodaj nowe urządzenie"
-               onclick="window.location.href='http://localhost:8080/newPc'">
-    </div>
-</div>
+    <p>
+    <h2 style="color: #5bc0de">Dyski twarde</h2>
+    <b>Ilość dysków: </b> <a th:text="${pcdetails.ilosc_dyskow}"></a><br>
+    <b>Pojemność SSD: </b> <a th:text="${pcdetails.pojemnosc_ssd}"></a><br>
+    <b>Pojemność HDD: </b> <a th:text="${pcdetails.pojemnosc_hdd}"></a><br>
+    </p>
 
-<div align="center">
-    <button class="btn btn-outline-info" onclick="window.location.href='http://localhost:8080/'"><i
-            class="fa fa-home"></i> Powrót do strony głównej
-    </button>
+    <p>
+    <h2 style="color: #5bc0de">Płyta główna</h2>
+    <b>Chipset płyty głównej: </b> <a th:text="${pcdetails.chipset}"></a><br>
+    <b>Złącza: </b> <a th:text="${pcdetails.zlacza}"></a><br>
+    </p>
+
+    <p>
+    <h2 style="color: #5bc0de">Obudowa</h2>
+    <b>Obudowa: </b> <a th:text="${pcdetails.obudowa}"></a><br>
+    <b>Liczba wentylatorów: </b> <a th:text="${pcdetails.liczba_wentylatorow}"></a><br>
+    </p>
+
+    <p>
+    <h2 style="color: #5bc0de">Cena</h2>
+    <h1 style="color: red" th:size="48"><a th:text="${pcdetails.cena}"></a> zł</h1>
+    </p>
+</table>
+
 </div>
 </body>
 </html>
