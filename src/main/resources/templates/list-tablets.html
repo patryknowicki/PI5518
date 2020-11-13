@@ -67,7 +67,8 @@
             <td th:text="${wpis.cena}+' zł'">cena</td>
 
             <td>
-                <a th:href="@{/details-notebook(id=${wpis.id})}" class="btn btn-outline-info"
+
+                <a th:href="@{'details-tablet/' + ${wpis.id}}" class="btn btn-outline-info"
                    data-toggle="tooltip" data-placement="top" title="Szczegółowe informacje"></i>Szczegóły</a>
                 <a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/delete-tablet(id=${wpis.id})}"
                    class="btn btn-danger"

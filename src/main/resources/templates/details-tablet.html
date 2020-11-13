@@ -16,7 +16,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <button onclick="window.location.href='http://localhost:8080/list-notebooks'"
+                <button onclick="window.location.href='http://localhost:8080/list-pcs'"
                         class="btn btn-info btn-lg btn-block">
                     <i class="material-icons">arrow_back</i>
                 </button>
@@ -42,7 +42,7 @@
                 </button>
             </li>
         </ul>
-        <form class="form-inline my-2 my-lg-0" action="http://localhost:8080/search-notebooks">
+        <form class="form-inline my-2 my-lg-0" action="http://localhost:8080/search-pcs">
             <input name="criterion" class="form-control mr-sm-2" type="search" placeholder="szukaj producenta "
                    aria-label="Search">
             <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Szukaj</button>
@@ -59,44 +59,24 @@
     <table align="center">
 
         <h2 style="color: #5bc0de">Dane techniczne</h2>
-        <b>Producent: </b> <a th:text="${notebookdetails.producent}"></a><br>
-        <b>Model: </b> <a th:text="${notebookdetails.grupa_produktowa}"></a><br>
-        <b>System operacyjny: </b> <a th:text="${notebookdetails.system_operacyjny}"></a><br>
-        <b>Rodzaj laptopa: </b> <a th:text="${notebookdetails.rodzaj_laptopa}"></a><br>
-        <b>Przekątna ekranu: </b> <a th:text="${notebookdetails.przekatna_ekranu}"></a><br>
-        <b>Typ procesora: </b> <a th:text="${notebookdetails.typ_procesora}"></a><br>
-        <b>Rodzaj dysku: </b> <a th:text="${notebookdetails.rodzaj_dysku}"></a><br>
-
-
-        <p>
-        <h2 style="color: #5bc0de">Wyświetlacz</h2>
-        <b>Rozdzielczość: </b> <a th:text="${notebookdetails.rozdzielczosc}"></a><br>
-        </p>
-
-        <p>
-        <h2 style="color: #5bc0de">Procesor</h2>
-        <b>Seria procesora: </b> <a th:text="${notebookdetails.seria_procesora}"></a><br>
-        <b>Model procesora: </b> <a th:text="${notebookdetails.model_procesora}"></a><br>
-        <b>Ilość rdzeni: </b> <a th:text="${notebookdetails.ilosc_rdzeni}"></a><br>
-        </p>
-
-        <p>
-        <h2 style="color: #5bc0de">Pamięć</h2>
-        <b>Wielkość pamięci RAM: </b> <a th:text="${notebookdetails.ram}"></a><br>
-        <b>Ilość dysków: </b> <a th:text="${notebookdetails.ilosc_dyskow}"></a><br>
-        <b>Pojemność SSD: </b> <a th:text="${notebookdetails.pojemnosc_ssd}"></a><br>
-        <b>Pojemność HDD: </b> <a th:text="${notebookdetails.pojemnosc_hdd}"></a><br>
-        </p>
-
-        <p>
-        <h2 style="color: #5bc0de">Karta graficzna</h2>
-        <b>Karta graficzna: </b> <a th:text="${notebookdetails.karta_graficzna}"></a><br>
-        <b>Wyjścia karty graficznej: </b> <a th:text="${notebookdetails.wyjscia_karty_graficznej}"></a><br>
-        </p>
+        <b>Producent: </b> <a th:text="${tabletdetails.producent}"></a><br>
+        <b>Model: </b> <a th:text="${tabletdetails.grupa_produktowa}"></a><br>
+        <b>Pamięć RAM: </b> <a th:text="${tabletdetails.ram}"></a><br>
+        <b>Przekątna ekranu: </b> <a th:text="${tabletdetails.przekatna_ekranu}"></a><br>
+        <b>Technologia dotykowa: </b> <a th:text="${tabletdetails.technologia_dotykowa}"></a><br>
+        <b>Typ wyświetlacza: </b> <a th:text="${tabletdetails.typ_wyswietlacza}"></a><br>
+        <b>Wersja: </b> <a th:text="${tabletdetails.wersja}"></a><br>
+        <b>Rozdzielczość: </b> <a th:text="${tabletdetails.rozdzielczosc}"></a><br>
+        <b>Model procesora: </b> <a th:text="${tabletdetails.model_procesora}"></a><br>
+        <b>Ilość rdzeni: </b> <a th:text="${tabletdetails.ilosc_rdzeni}"></a><br>
+        <b>System operacyjny: </b> <a th:text="${tabletdetails.system_operacyjny}"></a><br>
+        <b>Aparat przód: </b> <a th:text="${tabletdetails.aparat_przod}"></a><br>
+        <b>Aparat tył: </b> <a th:text="${tabletdetails.aparat_tyl}"></a><br>
+        <b>Pojemność akumulatora: </b> <a th:text="${tabletdetails.pojemnosc_akumulatora}"></a><br>
 
         <p>
         <h2 style="color: #5bc0de">Cena</h2>
-        <h1 style="color: red" th:size="48"><a th:text="${notebookdetails.cena}"></a> zł</h1>
+        <h1 style="color: red" th:size="48"><a th:text="${tabletdetails.cena}"></a> zł</h1>
         </p>
     </table>
 
