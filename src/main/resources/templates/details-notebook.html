@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head lang="pl">
+    <head>
+        <meta charset="UTF-8">
+        <title>Laptopy</title>
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+              integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+              crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    </head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <button onclick="window.location.href='http://localhost:8080/list-notebooks'"
+                        class="btn btn-info btn-lg btn-block">
+                    <i class="material-icons">arrow_back</i>
+                </button>
+            </li>
+            <li sec:authorize="isAnonymous()" class="nav-item active">
+                <button type="button" onclick="window.location.href='http://localhost:8080/login'"
+                        class="btn btn-secondary btn-lg btn-block">Zaloguj!
+                </button>
+            </li>
+            <li sec:authorize="isAnonymous()" class="nav-item active">
+                <button type="button" onclick="window.location.href='http://localhost:8080/sing-up'"
+                        class="btn btn-info btn-lg btn-block">Zarejestruj się!
+                </button>
+            </li>
+            <li sec:authorize="isAuthenticated()" class="nav-item active">
+                <button type="button" onclick="window.location.href='http://localhost:8080/logout'"
+                        class="btn btn-info btn-lg btn-block">Wyloguj
+                </button>
+            </li>
+            <li sec:authorize="hasRole('ROLE_ADMIN')" class="nav-item active">
+                <button type="button" onclick="window.location.href='http://localhost:8080/h2'"
+                        class="btn btn-warning btn-lg btn-block">Baza danych
+                </button>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0" action="http://localhost:8080/search-notebooks">
+            <input name="criterion" class="form-control mr-sm-2" type="search" placeholder="szukaj producenta "
+                   aria-label="Search">
+            <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Szukaj</button>
+        </form>
+    </div>
+</nav>
+
+<button type="button" class="btn btn-light btn-lg btn-block" disabled></button>
+
+
+<p sec:authorize="hasRole('ROLE_ADMIN')" align="center" style="color:red;">Jesteś zalogowany jako <b>ADMINISTRATOR</b>
+</p>
+<div align="center" style="font-size: large">
+<table align="center">
+
+    <h2 style="color: #5bc0de">Dane techniczne</h2>
+    <b>Producent: </b> <a th:text="${notebookdetails.producent}"></a><br>
+    <b>Model: </b> <a th:text="${notebookdetails.grupa_produktowa}"></a><br>
+    <b>System operacyjny: </b> <a th:text="${notebookdetails.system_operacyjny}"></a><br>
+    <b>Rodzaj laptopa: </b> <a th:text="${notebookdetails.rodzaj_laptopa}"></a><br>
+    <b>Przekątna ekranu: </b> <a th:text="${notebookdetails.przekatna_ekranu}"></a><br>
+    <b>Typ procesora: </b> <a th:text="${notebookdetails.typ_procesora}"></a><br>
+    <b>Rodzaj dysku: </b> <a th:text="${notebookdetails.rodzaj_dysku}"></a><br>
+
+
+
+    <p>
+    <h2 style="color: #5bc0de">Wyświetlacz</h2>
+    <b>Rozdzielczość: </b> <a th:text="${notebookdetails.rozdzielczosc}"></a><br>
+    </p>
+
+    <p>
+    <h2 style="color: #5bc0de">Procesor</h2>
+    <b>Seria procesora: </b> <a th:text="${notebookdetails.seria_procesora}"></a><br>
+    <b>Model procesora: </b> <a th:text="${notebookdetails.model_procesora}"></a><br>
+    <b>Ilość rdzeni: </b> <a th:text="${notebookdetails.ilosc_rdzeni}"></a><br>
+    </p>
+
+    <p>
+    <h2 style="color: #5bc0de">Pamięć</h2>
+    <b>Wielkość pamięci RAM: </b> <a th:text="${notebookdetails.ram}"></a><br>
+    <b>Ilość dysków: </b> <a th:text="${notebookdetails.ilosc_dyskow}"></a><br>
+    <b>Pojemność SSD: </b> <a th:text="${notebookdetails.pojemnosc_ssd}"></a><br>
+    <b>Pojemność HDD: </b> <a th:text="${notebookdetails.pojemnosc_hdd}"></a><br>
+    </p>
+
+    <p>
+    <h2 style="color: #5bc0de">Karta graficzna</h2>
+    <b>Karta graficzna: </b> <a th:text="${notebookdetails.karta_graficzna}"></a><br>
+    <b>Wyjścia karty graficznej: </b> <a th:text="${notebookdetails.wyjscia_karty_graficznej}"></a><br>
+    </p>
+
+    <p>
+    <h2 style="color: #5bc0de">Cena</h2>
+    <h1 style="color: red" th:size="48"><a th:text="${notebookdetails.cena}"></a> zł</h1>
+    </p>
+</table>
+
+</div>
+</body>
+</html>
