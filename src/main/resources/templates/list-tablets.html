@@ -16,6 +16,11 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <button  onclick="window.location.href='http://localhost:8080/'" class="btn btn-info btn-lg btn-block">
+                    <i class="material-icons">arrow_back</i>
+                </button>
+            </li>
             <li sec:authorize="isAnonymous()" class="nav-item active">
                 <button type="button" onclick="window.location.href='http://localhost:8080/login'"
                         class="btn btn-secondary btn-lg btn-block">Zaloguj!
@@ -31,24 +36,15 @@
                         class="btn btn-info btn-lg btn-block">Wyloguj
                 </button>
             </li>
-            <li sec:authorize="hasRole('ROLE_ADMIN')" class="nav-item active">
-                <button type="button" onclick="window.location.href='http://localhost:8080/h2'"
-                        class="btn btn-warning btn-lg btn-block">Baza danych
-                </button>
-            </li>
         </ul>
-        <form class="form-inline my-2 my-lg-0" action="http://localhost:8080/search-tablets">
-            <input  name="criterion" class="form-control mr-sm-2" type="search" placeholder="szukaj producenta " aria-label="Search">
+        <form class="form-inline my-2 my-lg-0" action="http://localhost:8080/search">
+            <input name="criterion" class="form-control mr-sm-2" type="search" placeholder="szukaj producenta "
+                   aria-label="Search">
             <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Szukaj</button>
         </form>
     </div>
 </nav>
-<button class="btn btn-outline-info" onclick="goBack()"><i class="material-icons" style="font-size:48px;color:#5bc0de;">
-    arrow_back </i>
-</button>
-<button type="button" class="btn btn-light btn-lg btn-block" disabled></button>
 
-<p sec:authorize="hasRole('ROLE_ADMIN')" align="center" style="color:red;">Jesteś zalogowany jako <b>ADMINISTRATOR</b></p>
 <div align="center">
     <button type="button" class="btn btn-info btn-lg btn-block" disabled><h2>Spis tabletów</h2></button>
 
@@ -94,6 +90,5 @@
             class="fa fa-home"></i> Powrót do strony głównej
     </button>
 </div>
-<script src="js/goback.js"></script>
 </body>
 </html>

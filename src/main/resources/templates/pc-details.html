@@ -15,6 +15,11 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <button onclick="window.location.href='http://localhost:8080/list-pcs'" class="btn btn-info btn-lg btn-block">
+                    <i class="material-icons">arrow_back</i>
+                </button>
+            </li>
             <li sec:authorize="isAnonymous()" class="nav-item active">
                 <button type="button" onclick="window.location.href='http://localhost:8080/login'"
                         class="btn btn-secondary btn-lg btn-block">Zaloguj!
@@ -43,9 +48,7 @@
         </form>
     </div>
 </nav>
-<button class="btn btn-outline-info" onclick="goBack()"><i class="material-icons" style="font-size:48px;color:#5bc0de;">
-    arrow_back </i>
-</button>
+
 <button type="button" class="btn btn-light btn-lg btn-block" disabled></button>
 
 
@@ -56,15 +59,9 @@
     <button type="button" class="btn btn-info btn-lg btn-block" disabled><h2>Spis komputerów stacjonarnych</h2></button>
 
 
-
     <p th:text="${pcdetails.producent}">
 
     </p>
-
-
-
-
-
 
 
     <div align="right">
@@ -80,6 +77,5 @@
             class="fa fa-home"></i> Powrót do strony głównej
     </button>
 </div>
-<script src="js/goback.js"></script>
 </body>
 </html>
