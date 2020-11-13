@@ -97,7 +97,7 @@ public class DbController {
     @RequestMapping("/details-pc/{id}")
     public String details(Model model, @PathVariable ("id") Integer id){
         model.addAttribute("pcdetails", pcsRepo.findById(id).get());
-        return "pc-details";
+        return "details-pc";
     }
 
     @RequestMapping("/delete-notebook")
