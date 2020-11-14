@@ -60,87 +60,87 @@
     <form action="#" th:action="@{/newPc}" th:object="${newPc}" method="post">
         <table align="center">
             <tr>
-                <td><b>(*)</b> Producent:</td>
+                <td><b style="color: red">*</b> Producent: </td>
                 <td><input type="text" name="producent" th:field="*{producent}" required></td>
             </tr>
             <tr>
-                <td><b>(*)</b> Model:</td>
+                <td><b style="color: red">*</b> Model: </td>
                 <td><input type="text" name="grupa_produktowa" th:field="*{grupa_produktowa}" required></td>
             </tr>
             <tr>
-                <td>System operacyjny</td>
+                <td>System operacyjny: </td>
                 <td><input type="text" name="system_operacyjny" th:field="*{system_operacyjny}"></td>
             </tr>
             <tr>
-                <td>Rodzaj:</td>
+                <td>Rodzaj: </td>
                 <td><input type="text" name="rodzaj" th:field="*{rodzaj}"></td>
             </tr>
             <tr>
-                <td>Seria</td>
+                <td>Seria: </td>
                 <td><input type="text" name="seria" th:field="*{seria}"></td>
             </tr>
             <tr>
-                <td>Typ procesora</td>
+                <td>Typ procesora: </td>
                 <td><input type="text" name="typ_procesora" th:field="*{typ_procesora}"></td>
             </tr>
             <tr>
-                <td>Seria procesora</td>
+                <td>Seria procesora: </td>
                 <td><input type="text" name="seria_procesora" th:field="*{seria_procesora}"></td>
             </tr>
             <tr>
-                <td>Model procesora</td>
+                <td>Model procesora: </td>
                 <td><input type="text" name="model_procesora" th:field="*{model_procesora}"></td>
             </tr>
             <tr>
-                <td><b>(*)</b> Ilość rdzeni</td>
+                <td><b style="color: red">*</b> Ilość rdzeni: </td>
                 <td><input type="number" name="ilosc_rdzeni" th:field="*{ilosc_rdzeni}" required></td>
             </tr>
             <tr>
-                <td>Karta graficzna</td>
+                <td>Karta graficzna: </td>
                 <td><input type="text" name="karta_graficzna" th:field="*{karta_graficzna}"></td>
             </tr>
             <tr>
-                <td>Wyjscia karty graficznej</td>
+                <td>Wyjscia karty graficznej: </td>
                 <td><input on type="text" name="wyjscia_karty_graficznej" th:field="*{wyjscia_karty_graficznej}"></td>
             </tr>
             <tr>
-                <td><b>(*)</b> Ilość RAM</td>
+                <td><b style="color: red">*</b> Ilość RAM: </td>
                 <td><input type="number" name="ram" th:field="*{ram}" required></td>
             </tr>
             <tr>
-                <td>Rodzaj pamięci RAM</td>
+                <td>Rodzaj pamięci RAM: </td>
                 <td><input type="text" name="rodzaj_ram" th:field="*{rodzaj_ram}"></td>
             </tr>
             <tr>
-                <td>Ilosc dyskow</td>
+                <td>Ilosc dyskow: </td>
                 <td><input type="number" name="ilosc_dyskow" th:field="*{ilosc_dyskow}"></td>
             </tr>
             <tr>
-                <td>Pojemnosc SSD</td>
+                <td>Pojemnosc SSD: </td>
                 <td><input type="number" name="pojemnosc_ssd" th:field="*{pojemnosc_ssd}"></td>
             </tr>
             <tr>
-                <td>Pojemnosc HDD</td>
+                <td>Pojemnosc HDD: </td>
                 <td><input type="number" name="pojemnosc_hdd" th:field="*{pojemnosc_hdd}"></td>
             </tr>
             <tr>
-                <td>Chipset płyty głównej</td>
+                <td>Chipset płyty głównej: </td>
                 <td><input type="text" name="chipset" th:field="*{chipset}"></td>
             </tr>
             <tr>
-                <td>Złącza</td>
+                <td>Złącza: </td>
                 <td><input type="text" name="zlacza" th:field="*{zlacza}"></td>
             </tr>
             <tr>
-                <td>Obudowa</td>
+                <td>Obudowa: </td>
                 <td><input type="text" name="obudowa" th:field="*{obudowa}"></td>
             </tr>
             <tr>
-                <td>Liczba wentylatorow</td>
+                <td>Liczba wentylatorow: </td>
                 <td><input type="number" name="liczba_wentylatorow" th:field="*{liczba_wentylatorow}"></td>
             </tr>
             <tr>
-                <td><b>(*)</b> Cena</td>
+                <td><b style="color: red">*</b> Cena: </td>
                 <td><input type="number" name="cena" th:field="*{cena}" required></td>
             </tr>
         </table>
