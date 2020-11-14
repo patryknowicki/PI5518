@@ -1,87 +1,127 @@
 <!DOCTYPE html>
-<html lang="pl" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>Dodaj nowe urządzenie</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-</head>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head lang="pl">
+    <head>
+        <meta charset="UTF-8">
+        <title>Laptopy</title>
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+              integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+              crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    </head>
 <body>
-<form action="#" th:action="@{/newTablet}" th:object="${newTablet}" method="post">
-
-    <table>
-        <a href="#" class="btn btn-secondary btn-lg disabled" role="button" aria-disabled="true">Dodaj</a>
-        <tr>
-            <td></td>
-        </tr>
-        <tr>
-            <td></td>
-        </tr>
-        <tr>
-            <td>producent:</td>
-            <td><input type="text" name="producent" th:field="*{producent}" placeholder="producent"></td>
-        </tr>
-        <tr>
-            <td>grupa_produktowa:</td>
-            <td><input type="text" name="grupa_produktowa" th:field="*{grupa_produktowa}"></td>
-        </tr>
-        <tr>
-            <td>ram</td>
-            <td><input type="text" name="ram" th:field="*{ram}"></td>
-        </tr>
-        <tr>
-            <td>technologia_dotykowa:</td>
-            <td><input type="text" name="technologia_dotykowa" th:field="*{technologia_dotykowa}"></td>
-        </tr>
-        <tr>
-            <td>typ_wyswietlacza</td>
-            <td><input type="number" name="typ_wyswietlacza" th:field="*{typ_wyswietlacza}"></td>
-        </tr>
-        <tr>
-            <td>wersja</td>
-            <td><input type="text" name="wersja" th:field="*{wersja}"></td>
-        </tr>
-        <tr>
-            <td>rozdzielczosc</td>
-            <td><input type="text" name="rozdzielczosc" th:field="*{rozdzielczosc}"></td>
-        </tr>
-        <tr>
-            <td>model_procesora</td>
-            <td><input type="number" name="model_procesora" th:field="*{model_procesora}"></td>
-        </tr>
-        <tr>
-            <td>ilosc_rdzeni</td>
-            <td><input type="text" name="ilosc_rdzeni" th:field="*{ilosc_rdzeni}"></td>
-        </tr>
-        <tr>
-            <td>system_operacyjny</td>
-            <td><input type="text" name="system_operacyjny" th:field="*{system_operacyjny}"></td>
-        </tr>
-        <tr>
-            <td>aparat_przod</td>
-            <td><input type="number" name="aparat_przod" th:field="*{aparat_przod}"></td>
-        </tr>
-        <tr>
-            <td>aparat_tyl</td>
-            <td><input type="text" name="aparat_tyl" th:field="*{aparat_tyl}"></td>
-        </tr>
-        <tr>
-            <td>pojemnosc_akumulatora</td>
-            <td><input type="number" name="pojemnosc_akumulatora" th:field="*{pojemnosc_akumulatora}"></td>
-        </tr>
-        <tr>
-            <td>cena</td>
-            <td><input type="number" name="cena" th:field="*{cena}"></td>
-        </tr>
-
-
-    </table>
-    <div class="btn-group" role="group" aria-label="Basic example">
-
-        <input class="btn btn-dark" type="reset" value="Reset">
-        <button type="button" class="btn btn-outline-dark" disabled></button>
-        <input class="btn btn-primary" type="submit" value="Submit">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <button onclick="window.location.href='http://localhost:8080/list-pcs'"
+                        class="btn btn-info btn-lg btn-block">
+                    <i class="material-icons">arrow_back</i>
+                </button>
+            </li>
+            <li sec:authorize="isAnonymous()" class="nav-item active">
+                <button type="button" onclick="window.location.href='http://localhost:8080/login'"
+                        class="btn btn-secondary btn-lg btn-block">Zaloguj!
+                </button>
+            </li>
+            <li sec:authorize="isAnonymous()" class="nav-item active">
+                <button type="button" onclick="window.location.href='http://localhost:8080/sing-up'"
+                        class="btn btn-info btn-lg btn-block">Zarejestruj się!
+                </button>
+            </li>
+            <li sec:authorize="isAuthenticated()" class="nav-item active">
+                <button type="button" onclick="window.location.href='http://localhost:8080/logout'"
+                        class="btn btn-info btn-lg btn-block">Wyloguj
+                </button>
+            </li>
+            <li sec:authorize="hasRole('ROLE_ADMIN')" class="nav-item active">
+                <button type="button" onclick="window.location.href='http://localhost:8080/h2'"
+                        class="btn btn-warning btn-lg btn-block">Baza danych
+                </button>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0" action="http://localhost:8080/search-pcs">
+            <input name="criterion" class="form-control mr-sm-2" type="search" placeholder="szukaj producenta "
+                   aria-label="Search">
+            <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Szukaj</button>
+        </form>
     </div>
-</form>
+</nav>
+
+<button type="button" class="btn btn-light btn-lg btn-block" disabled></button>
+
+
+<p sec:authorize="hasRole('ROLE_ADMIN')" align="center" style="color:red;">Jesteś zalogowany jako <b>ADMINISTRATOR</b>
+</p>
+<div align="center">
+    <h2>Dodaj nowy komputer</h2>
+    <form action="#" th:action="@{/newTablet}" th:object="${newTablet}" method="post">
+        <table align="center">
+            <tr>
+                <td><b style="color: red">*</b> Producent: </td>
+                <td><input type="text" name="producent" th:field="*{producent}" required></td>
+            </tr>
+            <tr>
+                <td><b style="color: red">*</b> Model: </td>
+                <td><input type="text" name="grupa_produktowa" th:field="*{grupa_produktowa}" required></td>
+            </tr>
+            <tr>
+                <td><b style="color: red">*</b> Wielkość pamięci RAM: </td>
+                <td><input type="text" name="ram" th:field="*{ram}" required></td>
+            </tr>
+            <tr>
+                <td>Technologia dotykowa: </td>
+                <td><input type="text" name="technologia_dotykowa" th:field="*{technologia_dotykowa}"></td>
+            </tr>
+            <tr>
+                <td>Typ wyswietlacza: </td>
+                <td><input type="number" name="typ_wyswietlacza" th:field="*{typ_wyswietlacza}"></td>
+            </tr>
+            <tr>
+                <td>Wersja: </td>
+                <td><input type="text" name="wersja" th:field="*{wersja}"></td>
+            </tr>
+            <tr>
+                <td>Rozdzielczość: </td>
+                <td><input type="text" name="rozdzielczosc" th:field="*{rozdzielczosc}"></td>
+            </tr>
+            <tr>
+                <td>Model procesora: </td>
+                <td><input type="text" name="model_procesora" th:field="*{model_procesora}"></td>
+            </tr>
+            <tr>
+                <td><b style="color: red">*</b> Ilość rdzeni: </td>
+                <td><input type="number" name="ilosc_rdzeni" th:field="*{ilosc_rdzeni}" required></td>
+            </tr>
+            <tr>
+                <td>System operacyjny: </td>
+                <td><input type="text" name="system_operacyjny" th:field="*{system_operacyjny}"></td>
+            </tr>
+            <tr>
+                <td>Aparat przód: </td>
+                <td><input type="number" name="aparat_przod" th:field="*{aparat_przod}"></td>
+            </tr>
+            <tr>
+                <td>Aparat tył: </td>
+                <td><input type="text" name="aparat_tyl" th:field="*{aparat_tyl}"></td>
+            </tr>
+            <tr>
+                <td>Pojemność akumulatora: </td>
+                <td><input type="number" name="pojemnosc_akumulatora" th:field="*{pojemnosc_akumulatora}"></td>
+            </tr>
+            <tr>
+                <td><b style="color: red">*</b> Cena</td>
+                <td><input type="number" name="cena" th:field="*{cena}" required></td>
+            </tr>
+        </table>
+        <div class="btn-group" role="group" aria-label="Basic example">
+
+            <input class="btn btn-dark" type="reset" value="Wyczyść formularz">
+            <input class="btn btn-info" type="submit" value="Dodaj">
+        </div>
+    </form>
+</div>
 </body>
 </html>
