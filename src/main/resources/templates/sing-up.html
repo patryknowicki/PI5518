@@ -1,51 +1,47 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
     <meta charset="UTF-8">
-    <title>Rejestracja</title>
-
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Formularz serwisowy</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
 </head>
 <body>
-<div align="center" th:id="top">
-    <h1>Rejestracja</h1><br>
-    <img src="https://scontent-frt3-2.xx.fbcdn.net/v/t1.15752-9/s2048x2048/91447004_207033283921431_5510066823107706880_n.png?_nc_cat=103&_nc_sid=b96e70&_nc_oc=AQlk6wlicQjAzPVnSgtTqTihvIzhxgotHZ9fwxYOFr1Ba-V-20qkM57JLVbkn1MRJPw&_nc_ht=scontent-frt3-2.xx&oh=4522af1fd3d465cd7379235dfbec2289&oe=5EB1F0EF"
-         height="170" width="280">
-    <br><br>
-<div align="center" th:id="box">
+<div th:align="center">
+    <button type="button" class="btn btn-info btn-lg btn-block" disabled><h2>Rejestracja</h2></button>
+    <br>
+<div th:align="center">
 
 <form th:action="@{/register}" th:object="${user}" method="post">
-    <button class="" disabled>
-        <span class="spinner-grow spinner-grow-sm"></span>
-        Rejestracja w toku..
-    </button><br>
-    Login:<br>
+    <b>Login:</b><br>
     <input type="text" name="username" th:field="*{username}">
     <span th:if="${#fields.hasErrors('username')}" th:errors="*{username}">username</span>
     <br>
-    Hasło:<br>
+        <b>Hasło:</b><br>
     <input type="password" name="password" th:field="*{password}">
     <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}">password</span>
-    <br>Hasło 2x:<br>
+    <br>
+    <b>Powtórz hasło:</b><br>
     <input type="password" name="confirmPassword" th:field="*{confirmPassword}">
     <span th:if="${#fields.hasErrors('confirmPassword')}" th:errors="*{confirmPassword}">confirmPassword</span>
     <br>
-    E-Mail:<br>
+    <b>E-Mail:</b><br>
     <input type="email" name="mail" th:field="*{mail}">
     <span th:if="${#fields.hasErrors('mail')}" th:errors="*{mail}">mail</span>
     <br><br>
-    <button type="submit" class="btn">Zarejestruj się!</button>
+    <button type="submit" class="btn btn-info">Zarejestruj się!</button>
 
-    <button type="reset" class="btn"><i class="fa fa-trash"></i> Wyczyść dane</button><br>
+    <button type="reset" class="btn btn-outline-dark"><i class="fa fa-trash"></i> Wyczyść dane</button><br>
 </form>
 
 </div>
     <br>
     <div align="center">
-        <button class="btn" onclick="window.location.href='http://localhost:8080/home'"><i class="fa fa-home"></i></button>
-
+        <button class="btn btn-outline-info" onclick="window.location.href='http://localhost:8080/'"><i
+                class="fa fa-home"></i> Powrót do strony głównej
+        </button>
     </div>
 </div>
 </body>
