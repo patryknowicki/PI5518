@@ -10,7 +10,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import pl.pi5518.aplikacja.service.UserDetailsServiceImpl;
 
 @Configuration
-public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+public class  WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
    @Bean
    public PasswordEncoder getPasswordEncoder(){
