@@ -9,9 +9,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>pl.aplikacja</groupId>
-    <artifactId>springsecurity-simple-factor-auth</artifactId>
+    <artifactId>praca-inzynierska</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>springsecurity-simple-factor-auth</name>
+    <name>praca-inzynierska</name>
     <description>Project for Spring Boot</description>
 
     <properties>
