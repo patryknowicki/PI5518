@@ -19,7 +19,6 @@ public class StepFour {
     public StepThree getStepThree() {
         return stepThree;
     }
-
     public void setStepThree(StepThree stepThree) {
         this.stepThree = stepThree;
     }
