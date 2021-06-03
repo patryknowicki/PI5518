@@ -2,8 +2,8 @@
 
 The web application includes the following functions:
 - Asynchornic chat
--Form to verify the approximate diagnosis of the fault
--H2 database
+- Form to verify the approximate diagnosis of the fault
+- H2 database
 
 
 #The application is fully opensource.
